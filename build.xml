@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+     General purpose build script for web applications and web services,
+     including enhanced support for deploying directly to a Tomcat based
+     server.
+
+     This build script assumes that the source code of your web application
+     is organized into the following subdirectories underneath the source
+     code directory from which you execute the build script:
+
+        docs                 Static documentation files to be copied to
+                             the "docs" subdirectory of your distribution.
+
+        src                  Java source code (and associated resource files)
+                             to be compiled to the "WEB-INF/classes"
+                             subdirectory of your web applicaiton.
+
+        web                  Static HTML, JSP, and other content (such as
+                             image files), including the WEB-INF subdirectory
+                             and its configuration file contents.
+-->
+
+<!--
+  A "project" describes a set of targets that may be requested
+  when Ant is executed.  The "default" attribute defines the
+  target which is executed if no specific target is requested,
+  and the "basedir" attribute defines the current working directory
+  from which Ant executes the requested task.  This is normally
+  set to the current working directory.
+-->
+
+<project name="datalift-d4" default="dist" basedir=".">
+
+  <!-- ================ Property Definitions ============================== -->
+
+  <!--
+    Each of the following properties are used in the build script.
+    Values for these properties are set by the first place they are
+    defined, from the following list:
+
+     * Definitions on the "ant" command line (ant -Dfoo=bar compile).
+
+     * Definitions from a "build.properties" file in the top level
+       source directory of this application.
+
+     * Definitions from a "foo-build.properties" file in the developer's
+       home directory.
+
+     * Default definitions in this build.xml file.
+
+    You will note below that property values can be composed based on
+    the contents of previously defined properties.  This is a powerful
+    technique that helps you minimize the number of changes required
+    when your development environment is modified.  Note that property
+    composition is allowed within "build.properties" files as well as
+    in the "build.xml" script.
+   -->
+
+  <property file="${user.home}/datalift-build.properties"/>
+  <property file="build.properties"/>
+
+  <property name="fwk.home"  location="${basedir}/../framework"/>
+  <property file="${fwk.home}/build.properties"/>
+
+  <property name="core.home" location="${basedir}/../core"/>
+  <property file="${core.home}/build.properties"/>
+
+  <!-- ================ File and Directory Names ========================== -->
+
+  <!--
+    These properties generally define file and directory names (or paths)
+    that affect where the build process stores its outputs.
+
+    app.name            Base name of this application, used to
+                        construct filenames and directories.
+                        Defaults to "myapp".
+
+    app.path            Context path to which this application should be
+                        deployed (defaults to "/" plus the value of the
+                        "app.name" property).
+
+    app.version         Version number of this iteration of the application.
+
+    build.home          The directory into which the "prepare" and
+                        "compile" targets will generate their output.
+                        Defaults to "build".
+
+    dist.home           The name of the base directory in which
+                        distribution files are created.
+                        Defaults to "dist".
+   -->
+
+  <property name="app.name"             value="d4"/>
+  <property name="app.version"          value="0.4"/>
+  <property name="app.path"             value="/${app.name}"/>
+  <property name="app.long.name"        value="DataCube experiments with DataLift"/>
+
+  <property name="build.home"           location="${basedir}/build"/>
+  <property name="dist.home"            location="${basedir}/dist"/>
+
+  <property name="src.home"             location="${basedir}/src/java"/>
+  <property name="web.home"             location="${basedir}/src/web"/>
+
+  <property name="lib.home"             location="${basedir}/lib"/>
+  <property name="run.lib.home"         location="${lib.home}/runtime"/>
+
+  <property name="fwk.web.home"         location="${fwk.home}/src/web"/>
+  <property name="fwk.lib.home"         location="${fwk.home}/lib"/>
+  <property name="fwk.dist.home"        location="${fwk.home}/dist"/>
+  <property name="fwk.build.libs"       location="${fwk.lib.home}/buildtime"/>
+  <property name="fwk.run.libs"         location="${fwk.lib.home}/runtime"/>
+  <property name="core.run.libs"        location="${core.home}/lib/runtime"/>
+
+  <property name="classes.dir"          location="${build.home}/classes"/>
+  <property name="docs.dir"             location="${dist.home}/docs"/>
+
+  <property name="jar.name"             value="${app.name}.jar"/>
+  <property name="jar.path"             location="${dist.home}/${jar.name}"/>
+
+  <property name="locale.default"       value="en"/>
+  <property name="locale.default_resources"
+            value="${web.home}/resources_${locale.default}.properties"/>
+
+  <available property="locale.exists" file="${locale.default_resources}"/>
+
+  <!-- ================ Compilation Control Options ======================= -->
+
+  <!--
+    These properties control option settings on the Javac compiler when it
+    is invoked using the <javac>
+  task.
+     - compile.debug        Should compilation include the debug option?
+     - compile.deprecation  Should compilation include the deprecation option?
+     - compile.optimize     Should compilation include the optimize option?
+   -->
+  <property name="compile.debug"        value="true"/>
+  <property name="compile.deprecation"  value="false"/>
+  <property name="compile.optimize"     value="false"/>
+
+  <!-- ================ Compilation Classpath ============================= -->
+
+  <!--
+    Rather than relying on the CLASSPATH environment variable, Ant includes
+    features that makes it easy to dynamically construct the classpath you
+    need for each compilation.  The example below constructs the compile
+    classpath to include the servlet.jar file, as well as the other components
+    that Tomcat makes available to web applications automatically, plus
+    anything that you explicitly added.
+   -->
+
+  <path id="runtime.classpath">
+    <!-- Include all JAR files that will be included in webapp WAR -->
+    <fileset dir="${fwk.run.libs}">
+      <include name="**/*.jar"/>
+    </fileset>
+    <fileset dir="${run.lib.home}">
+      <include name="**/*.jar"/>
+    </fileset>
+    <fileset dir="${fwk.dist.home}">
+      <include name="**/*.jar"/>
+    </fileset>
+  </path>
+
+  <path id="compile.classpath">
+    <!-- Runtime libraries -->
+    <path refid="runtime.classpath"/>
+    <!-- Buildtime-only libraries -->
+    <fileset dir="${fwk.build.libs}">
+      <include name="**/*.jar"/>
+    </fileset>
+    <fileset dir="${core.run.libs}">
+      <include name="**/*.jar"/>
+    </fileset>
+  </path>
+
+  <!-- ================ All Target ======================================== -->
+
+  <!--
+    The "all" target is a shortcut for running the "clean" target followed
+    by the "dist" target (to force a complete recompile and packaging).
+   -->
+
+  <target name="all" depends="clean,dist"
+   description="Cleans build and dist directories, then rebuilds distribution"/>
+
+  <!-- ================ Clean Target ====================================== -->
+
+  <!--
+    The "clean" target deletes any previous "build" and "dist" directories,
+    so that you can be ensured the application can be built from scratch.
+   -->
+
+  <target name="clean" depends="init"
+          description="Deletes build and dist directories">
+    <delete dir="${build.home}"/>
+    <delete dir="${dist.home}"/>
+  </target>
+
+  <!-- ================ Prepare Target ==================================== -->
+
+  <!--
+    The "prepare" target is used to create the "build" destination directory,
+    and copy the static contents of your web application to it.  If you need
+    to copy static files from external dependencies, you can customize the
+    contents of this task.
+
+    Normally, this task is executed indirectly when needed.
+   -->
+
+  <target name="init">
+    <tstamp/>
+  </target>
+
+  <target name="prepare" depends="init">
+    <!-- Create build directories as needed -->
+    <mkdir dir="${build.home}"/>
+    <!-- Create compilation target directory -->
+    <mkdir dir="${classes.dir}"/>
+  </target>
+
+  <!-- ================ Compile Target ==================================== -->
+
+  <!--
+    The "compile" target transforms source files (from your "src" directory)
+    into object files in the appropriate location in the build directory.
+    This example assumes that you will be including your classes in an
+    unpacked directory hierarchy under "/WEB-INF/classes".
+   -->
+
+  <target name="compile" depends="prepare"
+                         description="Compiles Java sources">
+    <!-- Compile Java classes as necessary -->
+    <javac srcdir="${src.home}"
+          destdir="${classes.dir}"
+            debug="${compile.debug}"
+      deprecation="${compile.deprecation}"
+         optimize="${compile.optimize}">
+      <classpath refid="compile.classpath"/>
+    </javac>
+    <!-- Copy application resources -->
+    <copy todir="${classes.dir}" includeEmptyDirs="false"
+                                 preservelastmodified="true">
+      <fileset dir="${src.home}" excludes="**/*.java,**/*.html,**/.*"/>
+    </copy>
+  </target>
+
+  <!-- ================ Dist Target ======================================= -->
+
+  <!--
+    The "dist" target creates the web application configuration files
+    and makes then ready for deployment.
+   -->
+
+  <!-- Copy default locale resource file -->
+  <target name="resource-copy" if="locale.exists">
+    <copy todir="${classes.dir}">
+      <fileset dir="${web.home}" includes="*_${locale.default}.properties"/>
+      <mapper type="glob"
+              from="*_${locale.default}.properties" to="*.properties"/>
+    </copy>
+  </target>
+
+  <target name="prepare-dist" depends="prepare">
+    <!-- Copy web application page templates and resources -->
+    <copy todir="${classes.dir}" includeEmptyDirs="false"
+                                 preservelastmodified="true">
+      <fileset dir="${web.home}" excludes="**/.*"/>
+    </copy>
+    <!-- Create build directories as needed -->
+    <mkdir dir="${dist.home}"/>
+  </target>
+
+  <!--
+    The "dist" target creates a binary distribution of your application
+    in a directory structure ready to be archived in a tar.gz or zip file.
+    Note that this target depends on two other targets:
+      - "compile" to build the the entire web application (including
+        external dependencies);
+      - "prepare-dist" to prepare web application configuration for
+        deployement.
+   -->
+
+  <target name="dist" depends="compile,prepare-dist,resource-copy"
+                      description="Create binary distribution">
+    <!-- Create module JAR file -->
+    <jar jarfile="${jar.path}" update="true">
+      <fileset dir="${classes.dir}"/>
+      <service type="org.datalift.fwk.Module">
+        <provider classname="org.datalift.d4.D4Controller"/>
+      </service>
+    </jar>
+  </target>
+
+  <!-- ================ Helper Targets ==================================== -->
+
+  <!--
+    The "debug" target lists the build configuration.
+   -->
+
+  <target name="debug" depends="init"
+                       description="Lists the build configuration">
+
+    <echo message="Build properties:"/>
+    <echo message=""/>
+    <echo message=" - Application configuration:"/>
+    <echo message="   - app.name            = ${app.name}"/>
+    <echo message="   - app.long.name       = ${app.long.name}"/>
+    <echo message="   - app.version         = ${app.version}"/>
+    <echo message="   - jar.name            = ${jar.name}"/>
+    <echo message=""/>
+    <echo message=" - Generation options:"/>
+    <echo message="   - compile.debug       = ${compile.debug}"/>
+    <echo message="   - compile.deprecation = ${compile.deprecation}"/>
+    <echo message="   - compile.optimize    = ${compile.optimize}"/>
+    <echo message=""/>
+    <echo message=" - Build environment:"/>
+    <echo message="   - basedir             = ${basedir}"/>
+    <echo message="   - build.home          = ${build.home}"/>
+    <echo message="   - dist.home           = ${dist.home}"/>
+    <echo message="   - user.home           = ${user.home}"/>
+    <echo message=""/>
+
+  </target>
+
+</project>

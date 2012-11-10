@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="datalift-d4" default="deploy" basedir=".">
+
+	<!-- ================ Property Definitions ============================== -->
+
+	<property name="tomcat.home" value="/Library/Tomcat"/>
+	<property name="tomcat.bootstrap" value="${tomcat.home}/bin/bootstrap.jar"/>
+	<property name="tomcat.port" value="8080"/>
+	<property name="tomcat.server" value="localhost"/>
+	<property name="tomcat.url" value="http://${tomcat.server}:${tomcat.port}"/>
+	
+	<property name="tomcat.msg.start" value="Tomcat started"/>
+	<property name="tomcat.msg.stop" value="Tomcat stopped"/>
+
+	<property name="project.home" value="/Library/Datalift/datalift-home"/>
+	<property name="project.modules" value="${project.home}/modules"/>
+
+	<property name="project.code" value="/Users/Will/Desktop/tw/datalift"/>
+
+	<property name="module.name" value="d4"/>
+	<property name="module.path" value="${project.code}/${module.name}"/>
+	<property name="module.jar" value="${module.path}/dist/${module.name}.jar"/>
+	<property name="module.url" value="${tomcat.url}/datalift/${module.name}"/>
+
+	<!-- ================ Target Definitions ============================== -->
+	<!-- 
+		Deploy only reloads part of the HTML rendering (templating or static).
+		It is necessary to reload (approx. 20s) to render Java modifications.
+	 -->
+	<target name="deploy" depends="compile, transfer"/>
+	<target name="reload" depends="stop, deploy, start"/>
+	<target name="launch" depends="deploy, start, open"/>
+
+	<!-- ================ Module deployment ============================== -->
+	<!--
+  		We must first compile our new module using its own Ant build file.
+  		Then transfer the resulting JAR to our deployment directory.
+  	-->
+	<target name="compile">
+		<subant target="dist">
+			<filelist dir="${project.code}" files="${module.name}"/>
+		</subant>
+	</target>
+
+	<target name="transfer">
+		<copy file="${module.jar}" todir="${project.modules}" overwrite="true"/>
+	</target>
+
+	<!-- ================ Tomcat management ============================== -->
+	<!-- 
+		We have to wait for Tomcat to stop / start before proceeding.
+		Tomcat is launched with a specific JVM arg for Datalift.
+		We add notifications with say and growlnotify.
+	 -->
+	<target name="start">
+		<java jar="${tomcat.bootstrap}" fork="true" spawn="true">
+			<jvmarg value="-Dcatalina.home=${tomcat.home}"/>
+			<jvmarg value="-Ddatalift.home=${project.home}"/>
+		</java>
+		<waitfor maxwait="10000" checkevery="1000">
+			<http url="${module.url}"/>
+		</waitfor>
+		<exec executable="say" spawn="yes">
+			<arg line="${tomcat.msg.start}"/>
+		</exec>
+	</target>
+
+	<target name="stop">
+		<java jar="${tomcat.bootstrap}" fork="true" spawn="true">
+			<jvmarg value="-Dcatalina.home=${tomcat.home}"/>
+			<arg line="stop"/>
+		</java>
+		<waitfor maxwait="3000" checkevery="1000">
+			<not>
+				<socket server="${tomcat.server}" port="${tomcat.port}"/>
+			</not>
+		</waitfor>
+		<exec executable="say" spawn="yes">
+			<arg line="${tomcat.msg.stop}"/>
+		</exec>
+	</target>
+
+	<!-- ================ URL opener ============================== -->
+	<!-- 
+		Opens the given URL into the default browser.
+		Useless if using LiveReload (set to  source code).
+	-->
+	<target name="open">
+		<exec executable="open" spawn="yes">
+			<arg line="${module.url}"/>
+		</exec>
+	</target>
+
+</project>

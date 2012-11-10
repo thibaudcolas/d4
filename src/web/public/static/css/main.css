@@ -1,0 +1,48 @@
+body {
+	overflow-x:hidden;
+}
+
+#workspace {
+	border:none;
+}
+
+h3 {
+	line-height:20px; 
+	font-size:18px;
+}
+
+
+.observation-table tbody tr.even:hover, .observation-table tbody tr.even td.highlighted {
+	background-color: #3a87ad;
+	color: #eee;
+}
+
+.observation-table tbody tr.odd:hover, .observation-table tbody tr.odd td.highlighted {
+	background-color: #3a87ad;
+	color: #eee;
+}
+
+
+.observation-table tbody tr.even:hover td, .observation-table tbody tr.even td.highlighted {
+	background-color: #3a87ad !important;
+	color: #eee;
+}
+
+.observation-table tbody tr.odd:hover td, .observation-table tbody tr.odd td.highlighted {
+	background-color: #3a87ad !important;
+}
+
+.tab-pane .dataTables_wrapper {
+	overflow:hidden;
+}
+
+dt, dd {
+  display:inline-block;
+}
+
+
+
+
+
+
+

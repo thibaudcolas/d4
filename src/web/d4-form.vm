@@ -1,0 +1,232 @@
+#load_core_resources
+#load("d4/resources")
+##
+#set( $moduleUri = "$baseUri/d4")
+##
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>#i18n('d4.title') - Datalift</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        #css_links
+        <link rel="stylesheet" href="${moduleUri}/static/css/bootstrap.css">
+        <link rel="stylesheet" href="${moduleUri}/static/css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="${moduleUri}/static/css/DT_bootstrap.css">
+        <link rel="stylesheet" href="${moduleUri}/static/css/main.css">
+        ##<link rel="stylesheet" href="http://localhost:1337/static/css/main.css">
+
+    </head>
+    <body>
+        #banner
+        <div class="ui-widget-content" id="workspace">
+            <h3 class="ui-widget-header dl-widget-header">
+                #i18n('project.label' ${it.title}) &mdash; #i18n('d4.title')
+            </h3>
+
+            <noscript>
+                <div class="ui-widget-content ui-corner-all ui-state-error">
+                    <h4>#i18n('warning.label')</h4>
+                    <p>#i18n('warning.info')</p>
+                </div>
+            </noscript>
+            <script type="text/javascript">var extract = [];</script>
+
+            <div class="container">
+
+                #foreach( $dataset in $datasets )
+                
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#metadata$foreach.count" data-toggle="tab">#i18n('tab.metadata')</a></li>
+                    <li><a href="#table$foreach.count" data-toggle="tab">#i18n('tab.table')</a></li>
+                    <li><a href="#chart$foreach.count" data-toggle="tab">#i18n('tab.chart')</a></li>
+                    <li><a href="#stats$foreach.count" data-toggle="tab">#i18n('tab.stats')</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="metadata$foreach.count" itemscope itemtype="http://schema.org/CreativeWork">
+                        <div class="row">
+                            <div class="span9">
+                                <h4 itemprop="name"> <strong><a href="$baseUri/sparql/describe?uri=$dataset.getGraph()&type=Graph&default-graph=internal&max=500">$dataset.getTitle()</a></strong> </h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span9">
+                                <div class="row">
+                                    <div class="span3">
+                                        <a href="$dataset.getDepictionURL()" class="thumbnail"><img itemprop="image" src="$dataset.getDepictionURL()" alt="#i18n('dataset.illustration') : $dataset.getTitle()"></a>
+                                    </div>
+                                    <div class="span6" itemprop="description">
+                                        <p>$dataset.getDescription()</p>
+                                        <p>$dataset.getComment()</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="span9">
+                                        <p></p>
+                                        <p><i class="icon-user"></i> #i18n('dataset.by') <a href="$dataset.getPublisherURL()" itemscope itemtype="http://schema.org/Organization" itemprop="author"><span class="label label-info" itemprop="name">$dataset.getPublisherName()</span></a> 
+                                            | <i class="icon-home"></i> #i18n('dataset.source') <a href="$dataset.getSourceURL()"><span class="label">$dataset.getSourceName()</span></a>
+                                            | <i class="icon-bullhorn"></i> #i18n('dataset.license') <a href="$dataset.getLicenseURL()">$dataset.getLicenseName()</a>
+                                        <br/>
+                                            <i class="icon-calendar"></i> #i18n('dataset.published') <time itemprop="datePublished" pubdate>$dataset.getReleaseDate()</time>
+                                            | <i class="icon-time"></i> #i18n('dataset.modified') <time itemprop="dateModified">$dataset.getModificationDate()</time>
+                                            | <i class="icon-refresh"></i> #i18n('dataset.periodicity') $dataset.getPeriodicity()
+                                        <br/>
+                                            <i class="icon-file"></i> #i18n('dataset.format') <a href="$dataset.getFormatURL()">$dataset.getFormatName()</a>
+                                            | <i class="icon-share"></i> #i18n('dataset.uri') &lt;<a href="$dataset.getUri()"><span class="long-string">$dataset.getUri()</span></a>&gt;
+                                            | <i class="icon-list"></i> <a href="$baseUri/sparql/describe?uri=$dataset.getGraph()&type=Graph&default-graph=internal&max=500"><span class="triples label label-info" data-index="$foreach.count">$dataset.getNbTriples() #i18n('dataset.triples')</span></a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span3">
+                                <h5>#i18n('dataset.observations')</h5>
+                                <small class="text-info">$dataset.getStructureName()</small>
+                                <p>
+                                    <i class="icon-globe"></i> #i18n('dataset.coverage') 
+                                    <br/><small><a href="$dataset.getCoverageURL()">$dataset.getCoverageName()</a></small>
+                                    <br/>
+                                    <i class="icon-zoom-in"></i> #i18n('dataset.dimension')
+                                    <br/><small class="tooltip-js" title="$dataset.getDimensionURI()">$dataset.getDimensionName()</small>
+                                    <br/>
+                                    <i class="icon-eye-open"></i> #i18n('dataset.measure')
+                                    <br/><small class="tooltip-js" title="$dataset.getUnitMeasure()">$dataset.getUnitMeasureName()</small>
+                                    &mdash; <small class="tooltip-js" title="$dataset.getMeasureURI()">$dataset.getMeasureName()</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="table$foreach.count">
+                        <script type="text/javascript">
+                            extract[$foreach.count] = "<table class=\'table table-condensed\'><thead><tr><th>#i18n('dataset.dimension')</th><th>#i18n('dataset.measure')</th></tr></thead><tbody><tr><td><small><span class=\'dimension-string\' title=\'$dataset.getExtractDim()\'>$dataset.getExtractDim()</span></small></td><td><small>$dataset.getExtractMeas()</small></td></tr><tr><td><small>&hellip;</small></td><td><small>&hellip;</small></td></tr><tr><td><small><span class=\'dimension-string\' title=\'$dataset.getExtractDimBis()\'>$dataset.getExtractDimBis()</span></small></td><td><small>$dataset.getExtractMeasBis()</small></td></tr></tbody></table>";
+                        </script>
+                        <div class="row">
+                            <div class="span12">
+                                <table class="observation-table table table-striped table-condensed table-bordered">
+                                    <thead><tr><th>$dataset.getDimensionName()</th><th>$dataset.getMeasureName()</th></tr></thead>
+                                    <tbody data-index="$foreach.count">
+                                    #foreach( $observation in $dataset.getObservations())
+                                        <tr class="data-observation"><td><span class="dimension-string" title="$observation.getDimension()">$observation.getDimension()</span></td><td><span class="measure-int">$observation.getMeasure()</span> <span class="data-numeric" data-numeric="$observation.getMeasure()"></span></td></tr>
+                                    #end
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane observation-barchart" id="chart$foreach.count" data-index="$foreach.count">
+                        <div id="innerchart$foreach.count"></div>
+                    </div>
+                    <div class="tab-pane observation-stats" id="stats$foreach.count" data-index="$foreach.count">
+                        <div class="row">
+                                <div class="span6">
+                                    <h4><strong>Indices de position</strong></h4>
+                                    <dl>
+                                        <dd title="#i18n('stats.mean.desc')" class="text-info">#i18n('stats.mean')</dd>
+                                        <dt class="stats$foreach.count stats-mean">NA</dt>
+                                        <hr/>
+                                        <dd title="#i18n('stats.mode.desc')" class="text-info">#i18n('stats.mode')</dd>
+                                        <dt class="stats$foreach.count stats-mode">NA</dt>
+                                        <hr/>
+                                        <dd title="#i18n('stats.median.desc')" class="text-info">#i18n('stats.median')</dd>
+                                        <dt class="stats$foreach.count stats-median">NA</dt>
+                                    </dl>
+                                </div>
+                                <div class="span6">
+                                    <h4><strong>Indices de dispersion</strong></h4>
+                                    <dl>
+                                        <dd title="#i18n('stats.min.desc')" class="text-info">#i18n('stats.min')</dd>
+                                        <dt class="stats$foreach.count stats-min">NA</dt>
+                                        <hr/>
+                                        <dd title="#i18n('stats.max.desc')" class="text-info">#i18n('stats.max')</dd>
+                                        <dt class="stats$foreach.count stats-max">NA</dt>
+                                        <hr/>
+                                        <dd title="#i18n('stats.range.desc')" class="text-info">#i18n('stats.range')</dd>
+                                        <dt class="stats$foreach.count stats-range">NA</dt>
+                                        <hr/>
+                                        <dd title="#i18n('stats.var.desc')" class="text-info">#i18n('stats.var')</dd>
+                                        <dt class="stats$foreach.count stats-var">NA</dt>
+                                        <hr/>
+                                        <dd title="#i18n('stats.sdev.desc')" class="text-info">#i18n('stats.sdev')</dd>
+                                        <dt class="stats$foreach.count stats-sdev">NA</dt>
+                                    </dl>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr/>
+                #end
+
+                <div id="graphic"></div>
+
+            </div> <!-- /container -->
+        </div>
+        #footer
+        #script_links
+        <script type="text/javascript" src="${moduleUri}/static/js/vendor/jquery-1.8.2.js"></script>
+        <script type="text/javascript" src="${moduleUri}/static/js/vendor/underscore.min.js"></script>
+        <script type="text/javascript" src="${moduleUri}/static/js/vendor/underscore.string.min.js"></script>
+        <script type="text/javascript" src="${moduleUri}/static/js/vendor/bootstrap.js"></script>
+        <script type="text/javascript" src="${moduleUri}/static/js/vendor/d3.v2.js"></script>
+        <script type="text/javascript" src="${moduleUri}/static/js/vendor/jquery.dataTables.js"></script>
+        <script type="text/javascript" src="${moduleUri}/static/js/vendor/DT_bootstrap.js"></script>
+
+        <script type="text/javascript">
+        var projectURI = "${it.uri}";
+        var pageLang = "#i18n('page.lang')";
+        var extractLabel = "#i18n('dataset.extract')";
+        var decimalSeparator = "#i18n('separator.decimal')";
+        var thousandsSeparator = "#i18n('separator.thousands')";
+
+
+        // # data[0] = first Dataset
+        // # data[0][0] = dimensions array
+        // # data[0][1] = measures array
+        // # console.log data
+        var data, i, _i, _j, _k;
+        data = new Array(10);
+        for (i = _i = 0; _i < 10; i = ++_i) {
+          data[i] = [];
+        }
+        for (i = _j = 0; _j < 10; i = ++_j) {
+          data[i][0] = [];
+        }
+        for (i = _k = 0; _k < 10; i = ++_k) {
+          data[i][1] = [];
+        }
+
+        $('.data-observation').each(function() {
+          var $this = $(this);
+          var dsIndex = $this.parent().attr('data-index');
+          data[dsIndex][0].push($this.find('.dimension-string').html());
+          data[dsIndex][1].push(parseInt($this.find('.data-numeric').attr('data-numeric')));
+        });
+
+        var dataTmp = [{"label":data[1][0][0], "value":data[1][1][0]}, 
+                        {"label":data[1][0][1], "value":data[1][1][1]}];
+        for(var i = 2; i < data[1][0].length; i++) {
+            dataTmp.push({"label":data[1][0][i], "value":data[1][1][i]});
+        }
+        </script>
+
+        ## Lien temporaire pour le développement.
+        ## <script type="text/javascript" src="http://localhost:1337/static/js/plugins.js"></script>
+        ## <script type="text/javascript" src="http://localhost:1337/static/js/main.js"></script>
+        ## <script type="text/javascript" src="http://localhost:1337/static/js/index.js"></script>
+        ## <script type="text/javascript" src="http://localhost:1337/static/js/stats.js"></script>
+        ## <script type="text/javascript" src="http://localhost:1337/static/js/charts.js"></script>
+        <script type="text/javascript" src="${moduleUri}/static/js/plugins.js"></script>
+        <script type="text/javascript" src="${moduleUri}/static/js/main.js"></script>
+        ##<script type="text/javascript" src="${moduleUri}/static/js/index.js"></script>
+        <script type="text/javascript" src="${moduleUri}/static/js/stats.js"></script>
+        <script type="text/javascript" src="${moduleUri}/static/js/charts.js"></script>
+    </body>
+</html>

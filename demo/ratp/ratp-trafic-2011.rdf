@@ -1,0 +1,2276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns:dct="http://purl.org/dc/terms/"
+	xmlns:sdmx-attribute="http://purl.org/linked-data/sdmx/2009/attribute#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:qb="http://purl.org/linked-data/cube#"
+	xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#">
+
+	<qb:DataSet rdf:about="http://thib.me/ratp/trafic-2011">
+		<dct:title xml:lang="fr">Trafic sur le réseau ferré RATP</dct:title>
+		<dct:title xml:lang="en">Traffic on the RATP railroad network</dct:title>
+		<dct:description xml:lang="fr">Ce jeu de donnée détaille le trafic des entrants directs sur le réseau ferré RATP.</dct:description>
+		<dct:description xml:lang="en">This dataset explores direct coming traffic in the RATP train stations.</dct:description>
+		<rdfs:comment xml:lang="fr">Les « entrants directs » sont exclusivement les voyageurs provenant de la voie publique ou du réseau SNCF entrant sur le réseau de transport RATP en validant un titre de transport valide. Les voyageurs en correspondance (y compris correspondances métro/RER) sur le réseau RATP ne sont pas comptabilisés.</rdfs:comment>
+		<rdfs:comment xml:lang="en">Are only counted people with a valid ticket coming from outside of the RATP network.</rdfs:comment>
+		<dct:publisher>
+			<foaf:Organization>
+				<foaf:name>RATP</foaf:name>
+				<foaf:homepage>http://ratp.fr/</foaf:homepage>
+			</foaf:Organization>
+		</dct:publisher>
+		<foaf:depiction>http://i.imgur.com/vNy79.jpg</foaf:depiction>
+		<dct:coverage rdfs:label="Ile-de-France" rdf:resource="http://fr.dbpedia.org/page/Ile-de-France"/>
+		<dct:license>Etalab</dct:license>
+		<dct:license>http://www.data.gouv.fr/Licence-Ouverte-Open-Licence</dct:license>
+
+		<dct:format>RDF DataCube</dct:format>
+		<dct:format>http://purl.org/linked-data/cube#</dct:format>
+
+		<dct:source>RATP Open Data</dct:source>
+		<dct:source>http://data.ratp.fr/fr/les-donnees/fiche-de-jeu-de-donnees/dataset/trafic-annuel-entrant-par-station-2011.html</dct:source>
+		
+		<dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-10-23</dct:modified>
+		<dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-07-31</dct:issued>
+
+		<dct:accrualPeriodicity>
+			<dct:Frequency>
+				<rdfs:label xml:lang="fr">Annuelle</rdfs:label>
+				<rdfs:label xml:lang="en">Annual</rdfs:label>
+			</dct:Frequency>
+		</dct:accrualPeriodicity>
+
+		<sdmx-attribute:unitMeasure rdfs:label="Population" rdf:resource="http://dbpedia.org/resource/Population"/>
+
+		<qb:structure>
+			<qb:DataStructureDefinition>
+				<qb:component>
+					<qb:ComponentSpecification>
+						<qb:dimension rdf:resource="http://purl.org/linked-data/sdmx/2009/dimension#refArea"/>
+						<qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</qb:order>
+						<rdfs:label xml:lang="fr">Station de RER / Metro</rdfs:label>
+						<rdfs:label xml:lang="en">Train / Metro station</rdfs:label>
+					</qb:ComponentSpecification>
+				</qb:component>
+				<qb:component>
+					<qb:ComponentSpecification>
+						<qb:measure rdf:resource="http://purl.org/linked-data/sdmx/2009/measure#obsValue"/>
+						<qb:order rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</qb:order>
+						<rdfs:label xml:lang="fr">Nombre de voyageurs entrants</rdfs:label>
+						<rdfs:label xml:lang="en">Number of entering travelers</rdfs:label>
+					</qb:ComponentSpecification>
+				</qb:component>
+				<rdfs:label xml:lang="fr">Nombre de personnes entrant dans une station par an.</rdfs:label>
+				<rdfs:label xml:lang="en">Number of travelers entering each station per year.</rdfs:label>
+			</qb:DataStructureDefinition>
+		</qb:structure>
+	</qb:DataSet>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/1">
+		<sdmx-dimension:refArea>GARE DU NORD</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">48146629</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/2">
+		<sdmx-dimension:refArea>SAINT-LAZARE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">46790941</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/3">
+		<sdmx-dimension:refArea>GARE DE LYON</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">34523049</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/4">
+		<sdmx-dimension:refArea>MONTPARNASSE-BIENVENUE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">31152275</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/5">
+		<sdmx-dimension:refArea>GARE DE L'EST</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">19671320</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/6">
+		<sdmx-dimension:refArea>REPUBLIQUE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">17095806</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/7">
+		<sdmx-dimension:refArea>BIBLIOTHEQUE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">15826727</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/8">
+		<sdmx-dimension:refArea>CHATELET</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">14440964</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/9">
+		<sdmx-dimension:refArea>LA DEFENSE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">13853216</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/10">
+		<sdmx-dimension:refArea>LES HALLES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">13113834</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/11">
+		<sdmx-dimension:refArea>HOTEL DE VILLE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">12760823</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/12">
+		<sdmx-dimension:refArea>FRANKLIN D. ROOSEVELT</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">12640577</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/13">
+		<sdmx-dimension:refArea>BASTILLE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">12517181</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/14">
+		<sdmx-dimension:refArea>OPERA</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">12389715</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/15">
+		<sdmx-dimension:refArea>PLACE D'ITALIE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">12168442</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/16">
+		<sdmx-dimension:refArea>BELLEVILLE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">11794952</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/17">
+		<sdmx-dimension:refArea>PORTE D'ORLEANS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9598097</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/18">
+		<sdmx-dimension:refArea>PALAIS-ROYAL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9559535</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/19">
+		<sdmx-dimension:refArea>NATION</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9481963</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/20">
+		<sdmx-dimension:refArea>BARBES-ROCHECHOUART</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9323474</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/21">
+		<sdmx-dimension:refArea>PLACE CLICHY</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9255747</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/22">
+		<sdmx-dimension:refArea>SAINT-MICHEL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9159024</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/23">
+		<sdmx-dimension:refArea>GARE D'AUSTERLITZ</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9063260</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/24">
+		<sdmx-dimension:refArea>PORTE DE CLIGNANCOURT</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9000298</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/25">
+		<sdmx-dimension:refArea>CHARLES DE GAULLE-ETOILE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">8980015</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/26">
+		<sdmx-dimension:refArea>PORTE MAILLOT</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">8852329</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/27">
+		<sdmx-dimension:refArea>ESPLANADE DE LA DEFENSE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">8721277</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/28">
+		<sdmx-dimension:refArea>TROCADERO</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">8455619</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/29">
+		<sdmx-dimension:refArea>HAVRE-CAUMARTIN</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">8343415</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/30">
+		<sdmx-dimension:refArea>LA MOTTE-PICQUET-GRENELLE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">8099346</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/31">
+		<sdmx-dimension:refArea>BIR-HAKEIM</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">7825821</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/32">
+		<sdmx-dimension:refArea>CHAUSSEE D'ANTIN-LA FAYETTE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">7778782</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/33">
+		<sdmx-dimension:refArea>GAMBETTA</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">7576845</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/34">
+		<sdmx-dimension:refArea>MADELEINE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">7412746</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/35">
+		<sdmx-dimension:refArea>AUBERVILLIERS-PANTIN-QUATRE CHEMINS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">7356008</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/36">
+		<sdmx-dimension:refArea>STRASBOURG-SAINT-DENIS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">7346063</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/37">
+		<sdmx-dimension:refArea>OLYMPIADES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">7245724</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/38">
+		<sdmx-dimension:refArea>CRIMEE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">7183997</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/39">
+		<sdmx-dimension:refArea>INVALIDES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6931062</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/40">
+		<sdmx-dimension:refArea>STALINGRAD</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6906194</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/41">
+		<sdmx-dimension:refArea>LA CHAPELLE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6903632</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/42">
+		<sdmx-dimension:refArea>MAIRIE DE CLICHY</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6892451</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/43">
+		<sdmx-dimension:refArea>CONCORDE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6866631</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/44">
+		<sdmx-dimension:refArea>GRANDS BOULEVARDS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6826718</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/45">
+		<sdmx-dimension:refArea>CHATEAU ROUGE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6798017</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/46">
+		<sdmx-dimension:refArea>PONT DE NEUILLY</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6794402</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/47">
+		<sdmx-dimension:refArea>BOBIGNY-PABLO PICASSO</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6722182</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/48">
+		<sdmx-dimension:refArea>ANVERS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6667509</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/49">
+		<sdmx-dimension:refArea>CHATILLON-MONTROUGE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6540563</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/50">
+		<sdmx-dimension:refArea>GALLIENI</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6314009</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/51">
+		<sdmx-dimension:refArea>MAIRIE DE MONTREUIL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6300355</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/52">
+		<sdmx-dimension:refArea>PORTE DE VERSAILLES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6275922</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/53">
+		<sdmx-dimension:refArea>SAINT-PAUL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6265848</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/54">
+		<sdmx-dimension:refArea>ODEON</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6239672</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/55">
+		<sdmx-dimension:refArea>VILLIERS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6193182</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/56">
+		<sdmx-dimension:refArea>GEORGE V</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6192199</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/57">
+		<sdmx-dimension:refArea>PIGALLE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6172069</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/58">
+		<sdmx-dimension:refArea>MARCADET-POISSONNIERS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6064992</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/59">
+		<sdmx-dimension:refArea>JAURES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6046012</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/60">
+		<sdmx-dimension:refArea>SAINT-MANDE-TOURELLE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5973612</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/61">
+		<sdmx-dimension:refArea>REAUMUR-SEBASTOPOL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5860077</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/62">
+		<sdmx-dimension:refArea>MARCEL SEMBAT</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5816044</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/63">
+		<sdmx-dimension:refArea>CONVENTION</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5780845</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/64">
+		<sdmx-dimension:refArea>MIROMESNIL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5769023</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/65">
+		<sdmx-dimension:refArea>LA COURNEUVE-8 MAI 1945</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5707118</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/66">
+		<sdmx-dimension:refArea>VILLEJUIF-LOUIS ARAGON</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5650185</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/67">
+		<sdmx-dimension:refArea>SEVRES-BABYLONE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5618445</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/68">
+		<sdmx-dimension:refArea>BERCY</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5565249</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/69">
+		<sdmx-dimension:refArea>COUR SAINT-EMILION</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5550822</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/70">
+		<sdmx-dimension:refArea>REUILLY-DIDEROT</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5451933</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/71">
+		<sdmx-dimension:refArea>DAUMESNIL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5435445</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/72">
+		<sdmx-dimension:refArea>LES SABLONS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5430088</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/73">
+		<sdmx-dimension:refArea>BASILIQUE DE SAINT-DENIS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5415515</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/74">
+		<sdmx-dimension:refArea>GABRIEL PERI</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5377830</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/75">
+		<sdmx-dimension:refArea>SAINT-DENIS-UNIVERSITE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5365746</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/76">
+		<sdmx-dimension:refArea>ALESIA</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5317934</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/77">
+		<sdmx-dimension:refArea>RICHELIEU-DROUOT</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5297670</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/78">
+		<sdmx-dimension:refArea>VOLTAIRE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5273953</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/79">
+		<sdmx-dimension:refArea>HOCHE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5217935</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/80">
+		<sdmx-dimension:refArea>BONNE NOUVELLE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5196140</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/81">
+		<sdmx-dimension:refArea>PASTEUR</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5089504</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/82">
+		<sdmx-dimension:refArea>PONT DE LEVALLOIS-BECON</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5085695</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/83">
+		<sdmx-dimension:refArea>PYRAMIDES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5084082</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/84">
+		<sdmx-dimension:refArea>CROIX DE CHAVAUX</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4978787</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/85">
+		<sdmx-dimension:refArea>PORTE DE SAINT-CLOUD</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4932701</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/86">
+		<sdmx-dimension:refArea>PERE LACHAISE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4880201</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/87">
+		<sdmx-dimension:refArea>CRETEIL-PREFECTURE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4865573</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/88">
+		<sdmx-dimension:refArea>CHATEAU DE VINCENNES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4858849</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/89">
+		<sdmx-dimension:refArea>CHATEAU D'EAU</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4842822</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/90">
+		<sdmx-dimension:refArea>PORTE DE MONTREUIL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4822893</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/91">
+		<sdmx-dimension:refArea>PORTE DE BAGNOLET</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4751655</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/92">
+		<sdmx-dimension:refArea>GLACIERE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4739497</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/93">
+		<sdmx-dimension:refArea>PORTE DE VANVES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4715395</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/94">
+		<sdmx-dimension:refArea>PEREIRE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4678888</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/95">
+		<sdmx-dimension:refArea>PLAISANCE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4645997</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/96">
+		<sdmx-dimension:refArea>MAIRIE DES LILAS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4602681</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/97">
+		<sdmx-dimension:refArea>COLONEL FABIEN</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4554566</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/98">
+		<sdmx-dimension:refArea>SAINT-GERMAIN DES PRES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4548167</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/99">
+		<sdmx-dimension:refArea>GUY MOQUET</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4524101</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/100">
+		<sdmx-dimension:refArea>LAUMIERE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4518075</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/101">
+		<sdmx-dimension:refArea>CHAMPS-ELYSEES-CLEMENCEAU</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4502691</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/102">
+		<sdmx-dimension:refArea>LE KREMLIN-BICETRE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4492364</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/103">
+		<sdmx-dimension:refArea>RAMBUTEAU</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4491306</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/104">
+		<sdmx-dimension:refArea>PORTE DE PANTIN</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4477959</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/105">
+		<sdmx-dimension:refArea>ECOLE MILITAIRE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4403029</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/106">
+		<sdmx-dimension:refArea>JULES JOFFRIN</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4384318</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/107">
+		<sdmx-dimension:refArea>PORTE DE VINCENNES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4363767</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/108">
+		<sdmx-dimension:refArea>PONT DE SEVRES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4352829</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/109">
+		<sdmx-dimension:refArea>DENFERT-ROCHEREAU</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4335086</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/110">
+		<sdmx-dimension:refArea>ROBESPIERRE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4317097</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/111">
+		<sdmx-dimension:refArea>MENILMONTANT</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4294888</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/112">
+		<sdmx-dimension:refArea>BALARD</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4263152</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/113">
+		<sdmx-dimension:refArea>BLANCHE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4252071</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/114">
+		<sdmx-dimension:refArea>OBERKAMPF</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4198870</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/115">
+		<sdmx-dimension:refArea>MAIRIE D'ISSY</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4194027</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/116">
+		<sdmx-dimension:refArea>PORTE DE CLICHY</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4156619</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/117">
+		<sdmx-dimension:refArea>LA MUETTE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4112862</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/118">
+		<sdmx-dimension:refArea>JUSSIEU</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4080680</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/119">
+		<sdmx-dimension:refArea>ALMA-MARCEAU</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4080301</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/120">
+		<sdmx-dimension:refArea>VICTOR HUGO</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3966843</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/121">
+		<sdmx-dimension:refArea>TERNES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3930362</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/122">
+		<sdmx-dimension:refArea>ALEXANDRE DUMAS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3926266</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/123">
+		<sdmx-dimension:refArea>CHARONNE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3924516</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/124">
+		<sdmx-dimension:refArea>PASSY</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3918954</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/125">
+		<sdmx-dimension:refArea>MALAKOFF-PLATEAU DE VANVES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3912036</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/126">
+		<sdmx-dimension:refArea>PORTE DES LILAS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3899020</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/127">
+		<sdmx-dimension:refArea>CHARLES MICHELS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3892728</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/128">
+		<sdmx-dimension:refArea>OURCQ</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3887042</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/129">
+		<sdmx-dimension:refArea>ARTS ET METIERS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3859066</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/130">
+		<sdmx-dimension:refArea>DUPLEIX</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3855503</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/131">
+		<sdmx-dimension:refArea>VAUGIRARD</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3853128</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/132">
+		<sdmx-dimension:refArea>LES GOBELINS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3830231</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/133">
+		<sdmx-dimension:refArea>LEDRU-ROLLIN</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3829461</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/134">
+		<sdmx-dimension:refArea>PORTE DE SAINT-OUEN</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3814464</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/135">
+		<sdmx-dimension:refArea>CENSIER-DAUBENTON</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3766777</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/136">
+		<sdmx-dimension:refArea>BOULOGNE-JEAN JAURES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3748047</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/137">
+		<sdmx-dimension:refArea>MAIRIE DE SAINT-OUEN</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3732408</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/138">
+		<sdmx-dimension:refArea>ANATOLE FRANCE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3702732</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/139">
+		<sdmx-dimension:refArea>CADET</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3650405</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/140">
+		<sdmx-dimension:refArea>GONCOURT</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3648533</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/141">
+		<sdmx-dimension:refArea>EGLISE DE PANTIN</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3632300</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/142">
+		<sdmx-dimension:refArea>TOLBIAC</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3612890</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/143">
+		<sdmx-dimension:refArea>MARX DORMOY</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3586107</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/144">
+		<sdmx-dimension:refArea>POISSONNIERE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3570062</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/145">
+		<sdmx-dimension:refArea>PORTE DE CHAMPERRET</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3559682</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/146">
+		<sdmx-dimension:refArea>SAINT-DENIS-PORTE DE PARIS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3517853</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/147">
+		<sdmx-dimension:refArea>FUNICULAIRE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3488052</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/148">
+		<sdmx-dimension:refArea>FORT D'AUBERVILLIERS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3455421</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/149">
+		<sdmx-dimension:refArea>PORTE DE LA CHAPELLE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3431552</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/150">
+		<sdmx-dimension:refArea>JOURDAIN</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3418732</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/151">
+		<sdmx-dimension:refArea>SAINT-PLACIDE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3404889</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/152">
+		<sdmx-dimension:refArea>BROCHANT</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3401859</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/153">
+		<sdmx-dimension:refArea>CORENTIN CELTON</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3385005</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/154">
+		<sdmx-dimension:refArea>LES COURTILLES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3377106</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/155">
+		<sdmx-dimension:refArea>ECOLE VETERINAIRE DE MAISONS-ALFORT</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3371386</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/156">
+		<sdmx-dimension:refArea>PARMENTIER</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3357432</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/157">
+		<sdmx-dimension:refArea>BOURSE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3350796</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/158">
+		<sdmx-dimension:refArea>COURONNES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3324335</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/159">
+		<sdmx-dimension:refArea>SENTIER</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3318660</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/160">
+		<sdmx-dimension:refArea>PYRENEES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3279317</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/161">
+		<sdmx-dimension:refArea>PERNETY</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3275971</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/162">
+		<sdmx-dimension:refArea>PLACE DES FETES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3265485</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/163">
+		<sdmx-dimension:refArea>LOUISE MICHEL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3240270</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/164">
+		<sdmx-dimension:refArea>GAITE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3223366</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/165">
+		<sdmx-dimension:refArea>DUROC</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3218029</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/166">
+		<sdmx-dimension:refArea>PORTE DE LA VILLETTE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3209252</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/167">
+		<sdmx-dimension:refArea>CAMBRONNE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3155480</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/168">
+		<sdmx-dimension:refArea>PORTE DE CHOISY</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3116890</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/169">
+		<sdmx-dimension:refArea>CRETEIL-UNIVERSITE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3116625</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/170">
+		<sdmx-dimension:refArea>CORENTIN CARIOU</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3090833</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/171">
+		<sdmx-dimension:refArea>GARIBALDI</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3088530</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/172">
+		<sdmx-dimension:refArea>QUAI DE LA GARE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3085406</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/173">
+		<sdmx-dimension:refArea>RUE DE LA POMPE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3081914</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/174">
+		<sdmx-dimension:refArea>LAMARCK-CAULAINCOURT</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3054528</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/175">
+		<sdmx-dimension:refArea>CHEVALERET</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2999174</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/176">
+		<sdmx-dimension:refArea>SIMPLON</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2996051</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/177">
+		<sdmx-dimension:refArea>MARAICHERS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2986282</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/178">
+		<sdmx-dimension:refArea>CHARENTON-ECOLES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2975899</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/179">
+		<sdmx-dimension:refArea>LA FOURCHE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2975434</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/180">
+		<sdmx-dimension:refArea>FAIDHERBE-CHALIGNY</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2974641</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/181">
+		<sdmx-dimension:refArea>MAIRIE D'IVRY</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2973671</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/182">
+		<sdmx-dimension:refArea>PLACE MONGE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2927184</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/183">
+		<sdmx-dimension:refArea>SAINT-AUGUSTIN</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2923768</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/184">
+		<sdmx-dimension:refArea>BOULOGNE-PONT DE SAINT-CLOUD</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2900015</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/185">
+		<sdmx-dimension:refArea>NOTRE-DAME-DE-LORETTE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2849349</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/186">
+		<sdmx-dimension:refArea>SAINT-MAUR</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2846171</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/187">
+		<sdmx-dimension:refArea>PORTE DAUPHINE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2840152</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/188">
+		<sdmx-dimension:refArea>BOUCICAUT</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2826775</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/189">
+		<sdmx-dimension:refArea>ARGENTINE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2820883</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/190">
+		<sdmx-dimension:refArea>SAINT-PHILIPPE-DU-ROULE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2813350</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/191">
+		<sdmx-dimension:refArea>SAINT-AMBROISE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2758716</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/192">
+		<sdmx-dimension:refArea>CARREFOUR PLEYEL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2754091</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/193">
+		<sdmx-dimension:refArea>ROME</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2747395</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/194">
+		<sdmx-dimension:refArea>CLUNY LA SORBONNE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2744528</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/195">
+		<sdmx-dimension:refArea>COMMERCE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2700300</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/196">
+		<sdmx-dimension:refArea>DUGOMMIER</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2694014</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/197">
+		<sdmx-dimension:refArea>COURCELLES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2685096</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/198">
+		<sdmx-dimension:refArea>PORTE DOREE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2675992</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/199">
+		<sdmx-dimension:refArea>RUE DES BOULETS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2669336</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/200">
+		<sdmx-dimension:refArea>ETIENNE MARCEL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2661074</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/201">
+		<sdmx-dimension:refArea>BILLANCOURT</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2643194</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/202">
+		<sdmx-dimension:refArea>NATIONALE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2626967</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/203">
+		<sdmx-dimension:refArea>JACQUES BONSERGENT</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2622801</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/204">
+		<sdmx-dimension:refArea>LIBERTE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2607263</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/205">
+		<sdmx-dimension:refArea>CORVISART</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2604292</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/206">
+		<sdmx-dimension:refArea>LOUVRE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2582023</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/207">
+		<sdmx-dimension:refArea>WAGRAM</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2575735</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/208">
+		<sdmx-dimension:refArea>RUE DU BAC</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2563169</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/209">
+		<sdmx-dimension:refArea>PORTE D'ITALIE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2562120</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/210">
+		<sdmx-dimension:refArea>MAUBERT-MUTUALITE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2549853</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/211">
+		<sdmx-dimension:refArea>VOLONTAIRES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2547550</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/212">
+		<sdmx-dimension:refArea>MALESHERBES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2546859</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/213">
+		<sdmx-dimension:refArea>ABBESSES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2545127</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/214">
+		<sdmx-dimension:refArea>BERAULT</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2531531</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/215">
+		<sdmx-dimension:refArea>LOUIS BLANC</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2523039</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/216">
+		<sdmx-dimension:refArea>RIQUET</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2519241</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/217">
+		<sdmx-dimension:refArea>TUILERIES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2473945</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/218">
+		<sdmx-dimension:refArea>JAVEL-ANDRE CITROEN</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2473278</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/219">
+		<sdmx-dimension:refArea>SOLFERINO</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2449915</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/220">
+		<sdmx-dimension:refArea>BREGUET-SABIN</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2448167</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/221">
+		<sdmx-dimension:refArea>LOURMEL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2441226</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/222">
+		<sdmx-dimension:refArea>SAINT-SULPICE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2432022</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/223">
+		<sdmx-dimension:refArea>SEVRES-LECOURBE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2416242</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/224">
+		<sdmx-dimension:refArea>VILLEJUIF-LEO LAGRANGE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2392154</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/225">
+		<sdmx-dimension:refArea>BEL AIR</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2369793</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/226">
+		<sdmx-dimension:refArea>LES AGNETTES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2367677</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/227">
+		<sdmx-dimension:refArea>CITE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2364993</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/228">
+		<sdmx-dimension:refArea>RANELAGH</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2315446</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/229">
+		<sdmx-dimension:refArea>BOBIGNY-PANTIN-RAYMOND QUENEAU</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2251347</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/230">
+		<sdmx-dimension:refArea>VAVIN</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2242491</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/231">
+		<sdmx-dimension:refArea>LE PELETIER</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2235088</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/232">
+		<sdmx-dimension:refArea>EDGAR QUINET</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2224650</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/233">
+		<sdmx-dimension:refArea>MICHEL-ANGE-AUTEUIL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2206285</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/234">
+		<sdmx-dimension:refArea>TRINITE-D'ESTIENNE D'ORVES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2192391</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/235">
+		<sdmx-dimension:refArea>TELEGRAPHE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2160412</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/236">
+		<sdmx-dimension:refArea>MAISON BLANCHE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2155971</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/237">
+		<sdmx-dimension:refArea>BOISSIERE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2145714</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/238">
+		<sdmx-dimension:refArea>VILLEJUIF-PAUL VAILLANT-COUTURIER</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2118126</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/239">
+		<sdmx-dimension:refArea>IENA</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2115003</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/240">
+		<sdmx-dimension:refArea>MICHEL BIZOT</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2111494</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/241">
+		<sdmx-dimension:refArea>CRETEIL-L'ECHAT</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2109885</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/242">
+		<sdmx-dimension:refArea>JASMIN</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2065058</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/243">
+		<sdmx-dimension:refArea>LA TOUR-MAUBOURG</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2055583</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/244">
+		<sdmx-dimension:refArea>NOTRE-DAME-DES-CHAMPS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2030493</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/245">
+		<sdmx-dimension:refArea>SAINT-MARCEL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2023002</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/246">
+		<sdmx-dimension:refArea>EXELMANS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1985640</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/247">
+		<sdmx-dimension:refArea>MAISONS-ALFORT-LES JUILLIOTTES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1976516</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/248">
+		<sdmx-dimension:refArea>MICHEL-ANGE-MOLITOR</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1939507</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/249">
+		<sdmx-dimension:refArea>SAINT-JACQUES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1937457</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/250">
+		<sdmx-dimension:refArea>FELIX FAURE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1932459</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/251">
+		<sdmx-dimension:refArea>AVRON</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1922250</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/252">
+		<sdmx-dimension:refArea>MABILLON</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1915829</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/253">
+		<sdmx-dimension:refArea>PORTE D'IVRY</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1903789</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/254">
+		<sdmx-dimension:refArea>BUZENVAL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1853733</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/255">
+		<sdmx-dimension:refArea>SAINT-FRANCOIS-XAVIER</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1850407</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/256">
+		<sdmx-dimension:refArea>MALAKOFF-RUE ETIENNE DOLET</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1846661</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/257">
+		<sdmx-dimension:refArea>PHILIPPE AUGUSTE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1813811</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/258">
+		<sdmx-dimension:refArea>MONTGALLET</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1793225</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/259">
+		<sdmx-dimension:refArea>RASPAIL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1785546</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/260">
+		<sdmx-dimension:refArea>QUATRE-SEPTEMBRE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1751431</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/261">
+		<sdmx-dimension:refArea>LIEGE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1731063</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/262">
+		<sdmx-dimension:refArea>MOUTON-DUVERNET</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1690457</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/263">
+		<sdmx-dimension:refArea>SAINT-SEBASTIEN-FROISSART</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1680231</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/264">
+		<sdmx-dimension:refArea>FILLES DU CALVAIRE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1663111</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/265">
+		<sdmx-dimension:refArea>CARDINAL LEMOINE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1661863</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/266">
+		<sdmx-dimension:refArea>RICHARD LENOIR</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1640016</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/267">
+		<sdmx-dimension:refArea>SEGUR</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1627318</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/268">
+		<sdmx-dimension:refArea>PONT NEUF</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1612517</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/269">
+		<sdmx-dimension:refArea>SULLY-MORLAND</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1606960</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/270">
+		<sdmx-dimension:refArea>MONCEAU</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1605664</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/271">
+		<sdmx-dimension:refArea>CHATEAU-LANDON</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1600022</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/272">
+		<sdmx-dimension:refArea>PONT MARIE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1595098</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/273">
+		<sdmx-dimension:refArea>EUROPE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1536565</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/274">
+		<sdmx-dimension:refArea>MAISONS-ALFORT-STADE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1523038</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/275">
+		<sdmx-dimension:refArea>VARENNE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1517830</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/276">
+		<sdmx-dimension:refArea>PICPUS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1496432</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/277">
+		<sdmx-dimension:refArea>AVENUE EMILE ZOLA</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1479756</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/278">
+		<sdmx-dimension:refArea>CHEMIN VERT</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1448436</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/279">
+		<sdmx-dimension:refArea>PIERRE CURIE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1416989</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/280">
+		<sdmx-dimension:refArea>MIRABEAU</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1387272</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/281">
+		<sdmx-dimension:refArea>RENNES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1307167</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/282">
+		<sdmx-dimension:refArea>TEMPLE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1268036</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/283">
+		<sdmx-dimension:refArea>SAINT-GEORGES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1254251</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/284">
+		<sdmx-dimension:refArea>CAMPO-FORMIO</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1234237</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/285">
+		<sdmx-dimension:refArea>QUAI DE LA RAPEE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1201924</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/286">
+		<sdmx-dimension:refArea>KLEBER</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1150016</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/287">
+		<sdmx-dimension:refArea>BOTZARIS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1096111</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/288">
+		<sdmx-dimension:refArea>ASSEMBLEE NATIONALE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1085710</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/289">
+		<sdmx-dimension:refArea>SAINT-FARGEAU</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">979912</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/290">
+		<sdmx-dimension:refArea>PORTE DE CHARENTON</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">957771</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/291">
+		<sdmx-dimension:refArea>VANEAU</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">928476</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/292">
+		<sdmx-dimension:refArea>FALGUIERE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">926922</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/293">
+		<sdmx-dimension:refArea>PORTE D'AUTEUIL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">721009</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/294">
+		<sdmx-dimension:refArea>DANUBE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">679746</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/295">
+		<sdmx-dimension:refArea>CHARDON-LAGACHE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">636141</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/296">
+		<sdmx-dimension:refArea>BOLIVAR</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">582328</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/297">
+		<sdmx-dimension:refArea>BUTTES-CHAUMONT</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">575182</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/298">
+		<sdmx-dimension:refArea>PRE-SAINT-GERVAIS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">451729</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/299">
+		<sdmx-dimension:refArea>CRETEIL-POINTE DU LAC</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">389235</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/300">
+		<sdmx-dimension:refArea>PELLEPORT</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">364642</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/301">
+		<sdmx-dimension:refArea>EGLISE D'AUTEUIL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">178152</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/302">
+		<sdmx-dimension:refArea>GARE DU NORD-RER</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">44596876</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/303">
+		<sdmx-dimension:refArea>GARE DE LYON-RER</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">31495687</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/304">
+		<sdmx-dimension:refArea>LA DEFENSE-RER</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">29783058</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/305">
+		<sdmx-dimension:refArea>NANTERRE-PREFECTURE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">23052703</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/306">
+		<sdmx-dimension:refArea>CHATELET-LES HALLES-RER</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">12986517</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/307">
+		<sdmx-dimension:refArea>VAL DE FONTENAY</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">11369665</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/308">
+		<sdmx-dimension:refArea>CHARLES DE GAULLE-ETOILE-RER</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9974724</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/309">
+		<sdmx-dimension:refArea>MASSY-PALAISEAU</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">8479103</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/310">
+		<sdmx-dimension:refArea>SAINT-MICHEL-NOTRE-DAME</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">8410856</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/311">
+		<sdmx-dimension:refArea>NOISY-LE-GRAND-MONT D'EST</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6866727</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/312">
+		<sdmx-dimension:refArea>RUEIL-MALMAISON</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6615943</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/313">
+		<sdmx-dimension:refArea>ANTONY</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6372562</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/314">
+		<sdmx-dimension:refArea>CITE UNIVERSITAIRE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6359072</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/315">
+		<sdmx-dimension:refArea>VINCENNES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5874104</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/316">
+		<sdmx-dimension:refArea>LUXEMBOURG</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5838336</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/317">
+		<sdmx-dimension:refArea>AUBER</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5667365</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/318">
+		<sdmx-dimension:refArea>NANTERRE-UNIVERSITE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5214188</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/319">
+		<sdmx-dimension:refArea>NOISY-CHAMPS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4669805</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/320">
+		<sdmx-dimension:refArea>NEUILLY-PLAISANCE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4647935</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/321">
+		<sdmx-dimension:refArea>MARNE-LA-VALLEE-CHESSY</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4578909</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/322">
+		<sdmx-dimension:refArea>SAINT-GERMAIN-EN-LAYE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4383920</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/323">
+		<sdmx-dimension:refArea>BOURG-LA-REINE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4309137</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/324">
+		<sdmx-dimension:refArea>DENFERT-ROCHEREAU-RER</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4262370</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/325">
+		<sdmx-dimension:refArea>NATION-RER</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4195903</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/326">
+		<sdmx-dimension:refArea>TORCY</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3712967</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/327">
+		<sdmx-dimension:refArea>SAINT-MAUR-CRETEIL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3626427</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/328">
+		<sdmx-dimension:refArea>JOINVILLE-LE-PONT</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3535908</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/329">
+		<sdmx-dimension:refArea>NANTERRE-VILLE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3408388</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/330">
+		<sdmx-dimension:refArea>CHAMPIGNY</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3279877</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/331">
+		<sdmx-dimension:refArea>PORT ROYAL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3242096</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/332">
+		<sdmx-dimension:refArea>VAL D'EUROPE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3161331</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/333">
+		<sdmx-dimension:refArea>LAPLACE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3145389</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/334">
+		<sdmx-dimension:refArea>ARCUEIL-CACHAN</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3101352</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/335">
+		<sdmx-dimension:refArea>LA CROIX DE BERNY</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2832453</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/336">
+		<sdmx-dimension:refArea>NOGENT-SUR-MARNE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2792732</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/337">
+		<sdmx-dimension:refArea>BUSSY-SAINT-GEORGES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2766096</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/338">
+		<sdmx-dimension:refArea>NOISIEL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2564613</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/339">
+		<sdmx-dimension:refArea>FONTENAY-SOUS-BOIS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2410731</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/340">
+		<sdmx-dimension:refArea>ORSAY-VILLE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2290579</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/341">
+		<sdmx-dimension:refArea>ROBINSON</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2262137</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/342">
+		<sdmx-dimension:refArea>BOISSY-SAINT-LEGER</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2235716</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/343">
+		<sdmx-dimension:refArea>GENTILLY</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2092205</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/344">
+		<sdmx-dimension:refArea>LE VESINET-LE PECQ</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2078606</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/345">
+		<sdmx-dimension:refArea>CHATOU-CROISSY</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2057141</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/346">
+		<sdmx-dimension:refArea>LE PARC DE SAINT-MAUR</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2048678</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/347">
+		<sdmx-dimension:refArea>BAGNEUX</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1985787</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/348">
+		<sdmx-dimension:refArea>SUCY-BONNEUIL</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1895918</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/349">
+		<sdmx-dimension:refArea>BRY-SUR-MARNE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1874920</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/350">
+		<sdmx-dimension:refArea>LA VARENNE-CHENNEVIERES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1830795</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/351">
+		<sdmx-dimension:refArea>LES BACONNETS</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1592744</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/352">
+		<sdmx-dimension:refArea>LOGNES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1571347</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/353">
+		<sdmx-dimension:refArea>LE VESINET-CENTRE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1218399</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/354">
+		<sdmx-dimension:refArea>FONTENAY-AUX-ROSES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1028095</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/355">
+		<sdmx-dimension:refArea>PALAISEAU</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">964017</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/356">
+		<sdmx-dimension:refArea>SAINT-REMY-LES-CHEVREUSE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">911726</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/357">
+		<sdmx-dimension:refArea>LE GUICHET</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">865385</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/358">
+		<sdmx-dimension:refArea>PALAISEAU-VILLEBON</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">865323</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/359">
+		<sdmx-dimension:refArea>LOZERE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">765952</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/360">
+		<sdmx-dimension:refArea>GIF-SUR-YVETTE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">717784</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/361">
+		<sdmx-dimension:refArea>SCEAUX</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">713823</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/362">
+		<sdmx-dimension:refArea>BURES-SUR-YVETTE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">670230</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/363">
+		<sdmx-dimension:refArea>FONTAINE-MICHALON</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">575331</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/364">
+		<sdmx-dimension:refArea>MASSY-VERRIERES</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">572805</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/365">
+		<sdmx-dimension:refArea>COURCELLE-SUR-YVETTE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">571411</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/366">
+		<sdmx-dimension:refArea>PARC DE SCEAUX</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">523365</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+	<qb:Observation rdf:about="http://thib.me/ratp/367">
+		<sdmx-dimension:refArea>LA HACQUINIERE</sdmx-dimension:refArea>
+		<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">425311</sdmx-measure:obsValue>
+		<qb:dataSet rdf:resource="http://thib.me/ratp/trafic-2011"/>
+	</qb:Observation>
+
+</rdf:RDF>

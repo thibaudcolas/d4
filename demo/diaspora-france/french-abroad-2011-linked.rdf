@@ -1,0 +1,1047 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xml:base="http://example.org/french-abroad/"
+	xmlns:dct="http://purl.org/dc/terms/"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:qb="http://purl.org/linked-data/cube#"
+	xmlns:sdmx-attribute="http://purl.org/linked-data/sdmx/2009/attribute#"
+	xmlns:sdmx-subject="http://purl.org/linked-data/sdmx/2009/subject#"
+	xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#"
+	xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#">
+
+
+<qb:DataSet rdf:about="french-diaspora">
+	<dct:title xml:lang="fr">Français résidant à l'étranger au 31/12/2011</dct:title>
+	<dct:title xml:lang="en">French citizens living abroad on 31/12/2011</dct:title>
+	<dct:description xml:lang="fr">Ce jeu de données est un export des données démographiques sur les Français résidant à l'étranger et inscrits au Registre du réseau consulaire.</dct:description>
+	<dct:description xml:lang="eb">This dataset is an export of the census data on french citizens living abroad and noticed on the Registre du réseau consulaire.</dct:description>
+	<rdfs:comment xml:lang="en">Ces données sont mises à disposition dans le cadre du mouvement Open Data.</rdfs:comment>
+	<rdfs:comment xml:lang="en">Those data are made available in accordance with the Open Data movement.</rdfs:comment>
+	<dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-12-31</dct:issued>
+	<dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-04-24</dct:modified>
+	<dct:subject rdf:resource="sdmx-subject:1.1"/>
+	<foaf:depiction>http://i.imgur.com/5bJyi.png</foaf:depiction>
+	<dct:publisher>
+		<foaf:Organization>
+		  <foaf:name>Ministère des Affaires Etrangères et Européennes</foaf:name>
+		  <foaf:homepage>http://www.diplomatie.gouv.fr/</foaf:homepage>
+		</foaf:Organization>
+	</dct:publisher>
+	<dct:language xml:lang="fr">Français</dct:language>
+	<dct:source>data.gouv.fr</dct:source>
+	<dct:source>http://www.data.gouv.fr/donnees/view/Statistiques-sur-les-Fran%C3%A7ais-r%C3%A9sidant-a-l%E2%80%99%C3%A9tranger-au-31-d%C3%A9cembre-2011-%3A-donn%C3%A9es-d%C3%A9mographiques-551451</dct:source>
+	<dct:format>RDF DataCube</dct:format>
+	<dct:format>http://purl.org/linked-data/cube#</dct:format>
+	<dct:license>Etalab</dct:license>
+	<dct:license>http://www.data.gouv.fr/Licence-Ouverte-Open-Licence</dct:license>
+	<dct:accrualPeriodicity>
+		<dct:Frequency>
+			<rdfs:label xml:lang="fr">Annuelle</rdfs:label>
+			<rdfs:label xml:lang="en">Annual</rdfs:label>
+		</dct:Frequency>
+	</dct:accrualPeriodicity>
+	<dct:coverage rdfs:label="Globe" rdf:resource="http://fr.dbpedia.org/resource/World"/>
+	<dct:spatial>
+		<dct:Location>
+			<dct:locationId rdfs:label="Globe" rdf:resource="http://dbpedia.org/resource/World"/>
+		</dct:Location>
+	</dct:spatial>
+
+	<sdmx-attribute:unitMeasure rdfs:label="Population" rdf:resource="http://dbpedia.org/resource/Population"/>
+
+	<qb:structure>
+		<qb:DataStructureDefinition>
+			<qb:component>
+				<qb:ComponentSpecification>
+					<qb:dimension rdf:resource="sdmx-dimension:refArea"/>
+					<qb:order>1</qb:order>
+					<rdfs:label xml:lang="fr">Pays</rdfs:label>
+					<rdfs:label xml:lang="en">Country</rdfs:label>
+				</qb:ComponentSpecification>
+			</qb:component>
+			<qb:component>
+				<qb:ComponentSpecification>
+					<qb:measure rdf:resource="sdmx-measure:obsValue"/>
+					<qb:order>2</qb:order>
+					<rdfs:label xml:lang="fr">Nombre de français</rdfs:label>
+					<rdfs:label xml:lang="en">Number of french people</rdfs:label>
+				</qb:ComponentSpecification>
+			</qb:component>
+			<rdfs:label xml:lang="fr">Nombre de résidents par territoire</rdfs:label>
+			<rdfs:label xml:lang="en">Number of people per country</rdfs:label>
+		</qb:DataStructureDefinition>
+	</qb:structure>
+</qb:DataSet>
+
+<qb:Observation rdf:about="obs1">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Afghanistan" rdfs:label="AFGHANISTAN"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">334</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs2">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/South_Africa" rdfs:label="AFRIQUE DU SUD"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">7108</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs3">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Albania" rdfs:label="ALBANIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">172</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs4">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Algeria" rdfs:label="ALGERIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">28830</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs5">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Germany" rdfs:label="ALLEMAGNE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">114372</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs6">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Andorra" rdfs:label="ANDORRE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3288</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs7">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Angola" rdfs:label="ANGOLA"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2070</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs8">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Saudi_Arabia" rdfs:label="ARABIE SAOUDITE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5306</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs9">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Argentina" rdfs:label="ARGENTINE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">14390</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs10">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Armenia" rdfs:label="ARMENIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">591</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs11">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Australia" rdfs:label="AUSTRALIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">18323</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs12">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Austria" rdfs:label="AUTRICHE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">8024</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs13">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Azerbaijan" rdfs:label="AZERBAIDJAN"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">164</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs14">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Bahrain" rdfs:label="BAHREIN"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">991</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs15">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Bangladesh" rdfs:label="BANGLADESH"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">235</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs16">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Belgium" rdfs:label="BELGIQUE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">109426</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs17">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Benin" rdfs:label="BENIN"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3694</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs18">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Belarus" rdfs:label="BIELORUSSIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">139</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs19">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Burma" rdfs:label="BIRMANIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">270</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs20">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Bolivia" rdfs:label="BOLIVIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1204</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs21">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Bosnia_and_Herzegovina" rdfs:label="BOSNIE-HERZEGOVINE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">318</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs22">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Botswana" rdfs:label="BOTSWANA"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">122</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs23">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Brazil" rdfs:label="BRESIL"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">19858</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs24">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Brunei" rdfs:label="BRUNEI"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">186</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs25">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Bulgaria" rdfs:label="BULGARIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1004</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs26">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Burkina_Faso" rdfs:label="BURKINA"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3387</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs27">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Burundi" rdfs:label="BURUNDI"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">444</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs28">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Cambodia" rdfs:label="CAMBODGE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3897</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs29">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Cameroon" rdfs:label="CAMEROUN"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6183</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs30">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Canada" rdfs:label="CANADA"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">79328</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs31">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Cape_Verde" rdfs:label="CAP-VERT"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">389</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs32">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Central_African_Republic" rdfs:label="CENTRAFRICAINE (REP.)"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1296</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs33">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Chile" rdfs:label="CHILI"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">11046</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs34">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/People%27s_Republic_of_China" rdfs:label="CHINE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">30305</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs35">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Cyprus" rdfs:label="CHYPRE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1339</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs36">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Colombia" rdfs:label="COLOMBIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4545</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs37">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Comoros" rdfs:label="COMORES"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1971</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs38">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Republic_of_the_Congo" rdfs:label="CONGO"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5083</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs39">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Democratic_Republic_of_the_Congo" rdfs:label="CONGO (REP. DEMOCRAT.)"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2448</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs40">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/South_Korea" rdfs:label="COREE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1993</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs41">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Costa_Rica" rdfs:label="COSTA RICA"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2093</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs42">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/C%C3%B4te_d%27Ivoire" rdfs:label="COTE D'IVOIRE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">13221</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs43">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Croatia" rdfs:label="CROATIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">925</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs44">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Cuba" rdfs:label="CUBA"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">510</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs45">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Denmark" rdfs:label="DANEMARK"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5214</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs46">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Djibouti" rdfs:label="DJIBOUTI"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5142</sdmx-measure:obsValue>
+	<rdfs:comment xml:lang="fr">dont 15 en Erythrée</rdfs:comment>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs47">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Dominican_Republic" rdfs:label="DOMINICAINE (REP.)"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3818</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs48">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Egypt" rdfs:label="EGYPTE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6483</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs49">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/United_Arab_Emirates" rdfs:label="EMIRATS ARABES UNIS"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">14352</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs50">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Ecuador" rdfs:label="EQUATEUR"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2182</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs51">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Spain" rdfs:label="ESPAGNE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">94056</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs52">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Estonia" rdfs:label="ESTONIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">182</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs53">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/United_States" rdfs:label="ETATS-UNIS"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">122686</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs54">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Ethiopia" rdfs:label="ETHIOPIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">895</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs55">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Fiji" rdfs:label="FIDJI"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">200</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs56">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Finland" rdfs:label="FINLANDE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2569</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs57">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Gabon" rdfs:label="GABON"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">11217</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs58">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Georgia_%28country%29" rdfs:label="GEORGIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">264</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs59">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Ghana" rdfs:label="GHANA"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">959</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs60">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Greece" rdfs:label="GRECE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">11226</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs61">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Guatemala" rdfs:label="GUATEMALA"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">788</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs62">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Guinea" rdfs:label="GUINEE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2379</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs63">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Equatorial_Guinea" rdfs:label="GUINEE EQUATORIALE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">684</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs64">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Guinea-Bissau" rdfs:label="GUINEE-BISSAO"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">109</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs65">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Haiti" rdfs:label="HAITI"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1551</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs66">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Honduras" rdfs:label="HONDURAS"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">387</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs67">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Hungary" rdfs:label="HONGRIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2413</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs68">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/India" rdfs:label="INDE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9595</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs69">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Indonesia" rdfs:label="INDONESIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3564</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs70">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Iraq" rdfs:label="IRAK"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">173</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs71">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Iran" rdfs:label="IRAN"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">903</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs72">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Iceland" rdfs:label="IRLANDE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">8881</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs73">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Republic_of_Ireland" rdfs:label="ISLANDE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">341</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs74">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Israel" rdfs:label="ISRAEL"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">58840</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs75">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Italy" rdfs:label="ITALIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">48352</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs76">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Jamaica" rdfs:label="JAMAIQUE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">203</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs77">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Japan" rdfs:label="JAPON"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">7480</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs78">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Palestinian_territories" rdfs:label="JERUSALEM - TER. PALESTINIENS"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">19708</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs79">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Jordan" rdfs:label="JORDANIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1407</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs80">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Kazakhstan" rdfs:label="KAZAKHSTAN"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">417</sdmx-measure:obsValue>
+	<rdfs:comment xml:lang="fr">dont 63 au Kirghizstan</rdfs:comment>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs81">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Kenya" rdfs:label="KENYA"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1366</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs82">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Kosovo" rdfs:label="KOSOVO"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">108</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs83">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Kuwait" rdfs:label="KOWEIT"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1014</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs84">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Laos" rdfs:label="LAOS"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1884</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs85">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Latvia" rdfs:label="LETTONIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">193</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs86">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Lebanon" rdfs:label="LIBAN"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">21428</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs87">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Libya" rdfs:label="LIBYE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">407</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs88">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Lithuania" rdfs:label="LITUANIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">379</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs89">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Luxembourg" rdfs:label="LUXEMBOURG"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">28720</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs90">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Macedonia" rdfs:label="MACEDOINE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">201</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs91">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Madagascar" rdfs:label="MADAGASCAR"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">19864</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs92">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Malaysia" rdfs:label="MALAISIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2592</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs93">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Mali" rdfs:label="MALI"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4815</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs94">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Malta" rdfs:label="MALTE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">497</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs95">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Morocco" rdfs:label="MAROC"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">44000</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs96">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Mauritius" rdfs:label="MAURICE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9780</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs97">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Mauritania" rdfs:label="MAURITANIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2127</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs98">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Mexico" rdfs:label="MEXIQUE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">17315</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs99">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Moldova" rdfs:label="MOLDAVIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">102</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs100">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Monaco" rdfs:label="MONACO"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">7792</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs101">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Mongolia" rdfs:label="MONGOLIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">118</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs102">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Montenegro" rdfs:label="MONTENEGRO"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">111</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs103">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Mozambique" rdfs:label="MOZAMBIQUE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">468</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs104">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Namibia" rdfs:label="NAMIBIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">293</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs105">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Nepal" rdfs:label="NEPAL"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">218</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs106">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Nicaragua" rdfs:label="NICARAGUA"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">660</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs107">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Niger" rdfs:label="NIGER"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1558</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs108">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Nigeria" rdfs:label="NIGERIA"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1826</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs109">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Norway" rdfs:label="NORVEGE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5034</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs110">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/New_Zealand" rdfs:label="NOUVELLE-ZELANDE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3512</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs111">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Oman" rdfs:label="OMAN"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">702</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs112">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Uganda" rdfs:label="OUGANDA"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">387</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs113">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Uzbekistan" rdfs:label="OUZBEKISTAN"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">111</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs114">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Pakistan" rdfs:label="PAKISTAN"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">578</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs115">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Panama" rdfs:label="PANAMA"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1270</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs116">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Papua_New_Guinea" rdfs:label="PAPOUASIE-NOUVELLE-GUINEE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">120</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs117">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Paraguay" rdfs:label="PARAGUAY"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1395</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs118">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Netherlands" rdfs:label="PAYS-BAS"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">23934</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs119">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Peru" rdfs:label="PEROU"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3713</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs120">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Philippines" rdfs:label="PHILIPPINES"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2272</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs121">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Poland" rdfs:label="POLOGNE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5757</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs122">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Portugal" rdfs:label="PORTUGAL"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">15572</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs123">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Qatar" rdfs:label="QATAR"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3202</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs124">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Romania" rdfs:label="ROUMANIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2979</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs125">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/United_Kingdom" rdfs:label="ROYAUME-UNI"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">123306</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs126">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Russia" rdfs:label="RUSSIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5752</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs127">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Rwanda" rdfs:label="RWANDA"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">258</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs128">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Saint_Lucia" rdfs:label="SAINTE-LUCIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">805</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs129">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/El_Salvador" rdfs:label="SALVADOR"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">690</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs130">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Senegal" rdfs:label="SENEGAL"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">17729</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs131">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Serbia" rdfs:label="SERBIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1483</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs132">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Seychelles" rdfs:label="SEYCHELLES"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">552</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs133">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Singapore" rdfs:label="SINGAPOUR"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9197</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs134">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Slovakia" rdfs:label="SLOVAQUIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">895</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs135">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Slovenia" rdfs:label="SLOVENIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">682</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs136">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Sudan" rdfs:label="SOUDAN"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">225</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs137">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/South_Sudan" rdfs:label="SOUDAN DU SUD"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">54</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs138">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Sri_Lanka" rdfs:label="SRI LANKA"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">425</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs139">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Sweden" rdfs:label="SUEDE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6329</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs140">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Switzerland" rdfs:label="SUISSE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">155743</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs141">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Suriname" rdfs:label="SURINAME"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">251</sdmx-measure:obsValue>
+	<rdfs:comment xml:lang="fr">dont 29 au Guyana</rdfs:comment>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs142">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Syria" rdfs:label="SYRIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2660</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs143">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Tajikistan" rdfs:label="TADJIKISTAN"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">33</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs144">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Taiwan" rdfs:label="TAIWAN"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1517</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs145">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Tanzania" rdfs:label="TANZANIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">630</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs146">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Chad" rdfs:label="TCHAD"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1259</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs147">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Czech_Republic" rdfs:label="TCHEQUE (REPUBLIQUE)"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2983</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs148">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Thailand" rdfs:label="THAILANDE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9788</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs149">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Togo" rdfs:label="TOGO"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3007</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs150">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Trinidad_and_Tobago" rdfs:label="TRINITE-ET-TOBAGO"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">649</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs151">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Tunisia" rdfs:label="TUNISIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">21552</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs152">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Turkmenistan" rdfs:label="TURKMENISTAN"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">473</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs153">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Turkey" rdfs:label="TURQUIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6630</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs154">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Ukraine" rdfs:label="UKRAINE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1016</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs155">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Uruguay" rdfs:label="URUGUAY"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2824</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs156">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Vanuatu" rdfs:label="VANUATU"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1962</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs157">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Venezuela" rdfs:label="VENEZUELA"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4970</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs158">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Vietnam" rdfs:label="VIET NAM"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6164</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs159">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Yemen" rdfs:label="YEMEN"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">510</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs160">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Zambia" rdfs:label="ZAMBIE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">243</sdmx-measure:obsValue>
+</qb:Observation>
+
+<qb:Observation rdf:about="obs161">
+	<qb:dataSet rdf:resource="http://example.org/french-abroad/french-diaspora"/>
+	<sdmx-dimension:refArea rdf:resource="http://dbpedia.org/resource/Zimbabwe" rdfs:label="ZIMBABWE"/>
+	<sdmx-measure:obsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">241</sdmx-measure:obsValue>
+</qb:Observation>
+
+</rdf:RDF>
