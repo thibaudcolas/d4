@@ -1,9 +1,7 @@
-Title: D4
-Author: Thibaud Colas
-Date: 07/11/12
-Version: 0.4
-
 # D4 Readme #
+
+Version: 0.4
+Date: 07/11/12
 
 DataLift, DataCube, D3.
 
