@@ -43,7 +43,8 @@ import org.datalift.fwk.project.Source.SourceType;
 import org.datalift.fwk.project.TransformedRdfSource;
 
 /**
- * D4
+ * D4's backend main class.
+ * Handles DataSets' retrieval and project compatibility check.
  *
  * @author tcolas
  * @version 071112
@@ -64,18 +65,18 @@ public class D4Model extends ModuleModel {
     //-------------------------------------------------------------------------
     // Sources management.
     //-------------------------------------------------------------------------
-    
+
     /**
-     * Checks if a given {@link Source} contains valid RDF-structured data 
+     * Checks if a given {@link Source} contains valid RDF-structured data
      * AND DataCube data.
      * @param src The source to check.
-     * @return True if src is {@link TransformedRdfSource} && contains QB.
+     * @return True if src is {@link TransformedRdfSource} and contains QB.
      */
     protected boolean isValidSource(Source src) {
-    	return src.getType() == SourceType.TransformedRdfSource 
+    	return src.getType() == SourceType.TransformedRdfSource
     			&& containsDataCube(src);
     }
-    
+
     /**
      * Checks if a given {@link Source} contains DataCube data.
      * @param src The source to check.
@@ -84,11 +85,11 @@ public class D4Model extends ModuleModel {
     protected boolean containsDataCube(Source src) {
     	String query = writeQuery(src.getUri(), "{?d a <http://purl.org/linked-data/cube#DataSet>}", "d");
     	LinkedList<String> ret = selectQuery(query, "d");
-    	
+
     	return !ret.isEmpty();
     }
-    
-    
+
+
     public LinkedList<DataSet> getProjectDataSets(Project proj) {
     	LinkedList<DataSet> ret = new LinkedList<DataSet>();
     	DataSetORM datasetMapper;
@@ -98,7 +99,7 @@ public class D4Model extends ModuleModel {
     			ret.add(datasetMapper.getDataSet());
     		}
     	}
-    	
+
     	return ret;
     }
 }

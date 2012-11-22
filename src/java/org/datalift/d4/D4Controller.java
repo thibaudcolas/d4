@@ -50,7 +50,9 @@ import org.datalift.d4.datacube.DataSet;
 import org.datalift.fwk.project.Project;
 
 /**
- * D4
+ * D4 main controller class, making its model and view cooperate.
+ * Exposes /d4 as D4's main URL.
+ *
  * @author tcolas
  * @version 071112
  */
@@ -66,7 +68,7 @@ public class D4Controller extends ModuleController {
     //-------------------------------------------------------------------------
     // Instance members
     //-------------------------------------------------------------------------
-    
+
     /** The module's back-end logic handler. */
     protected final D4Model model;
 
@@ -90,7 +92,7 @@ public class D4Controller extends ModuleController {
     //-------------------------------------------------------------------------
 
     /**
-     * Tells the project manager to add a new button to projects with at least 
+     * Tells the project manager to add a new button to projects with at least
      * two sources.
      * @param p Our current project.
      * @return The URI to our project's main page.
@@ -98,12 +100,12 @@ public class D4Controller extends ModuleController {
     public final UriDesc canHandle(Project p) {
         UriDesc uridesc = null;
 
-        try {           
+        try {
             // The project can be handled if it has at least one RDF source.
             if (model.hasMultipleRDFSources(p, 1)) {
             	// link URL, link label
-                uridesc = new UriDesc(this.getName() + "?project=" + p.getUri(), this.label); 
-                
+                uridesc = new UriDesc(this.getName() + "?project=" + p.getUri(), this.label);
+
                 if (this.position > 0) {
                     uridesc.setPosition(this.position);
                 }
@@ -136,12 +138,12 @@ public class D4Controller extends ModuleController {
         // Retrieve the current project and its sources.
         Project proj = this.getProject(projectId);
         LinkedList<DataSet> datasets = model.getProjectDataSets(proj);
-        
+
         HashMap<String, Object> args = new HashMap<String, Object>();
         args.put("it", proj);
-        
+
         args.put("datasets", datasets);
-        
+
         return Response.ok(this.newViewable("/d4-form.vm", args)).build();
     }
 }

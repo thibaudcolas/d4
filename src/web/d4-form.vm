@@ -1,6 +1,7 @@
 #load_core_resources
 #load("d4/resources")
 ##
+## Hello Velocity !
 #set( $moduleUri = "$baseUri/d4")
 ##
 <!DOCTYPE html>
@@ -41,7 +42,7 @@
             <div class="container">
 
                 #foreach( $dataset in $datasets )
-                
+
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#metadata$foreach.count" data-toggle="tab">#i18n('tab.metadata')</a></li>
                     <li><a href="#table$foreach.count" data-toggle="tab">#i18n('tab.table')</a></li>
@@ -60,6 +61,7 @@
                             <div class="span9">
                                 <div class="row">
                                     <div class="span3">
+                                        <!-- Dataset's depiction with the Bootstrap thumbnail class. -->
                                         <a href="$dataset.getDepictionURL()" class="thumbnail"><img itemprop="image" src="$dataset.getDepictionURL()" alt="#i18n('dataset.illustration') : $dataset.getTitle()"></a>
                                     </div>
                                     <div class="span6" itemprop="description">
@@ -69,8 +71,9 @@
                                 </div>
                                 <div class="row">
                                     <div class="span9">
+                                        <!-- Here are the main dataset's metadata attributes. It'd be best to retrieve any metadata and to process them in a much more automated way. -->
                                         <p></p>
-                                        <p><i class="icon-user"></i> #i18n('dataset.by') <a href="$dataset.getPublisherURL()" itemscope itemtype="http://schema.org/Organization" itemprop="author"><span class="label label-info" itemprop="name">$dataset.getPublisherName()</span></a> 
+                                        <p><i class="icon-user"></i> #i18n('dataset.by') <a href="$dataset.getPublisherURL()" itemscope itemtype="http://schema.org/Organization" itemprop="author"><span class="label label-info" itemprop="name">$dataset.getPublisherName()</span></a>
                                             | <i class="icon-home"></i> #i18n('dataset.source') <a href="$dataset.getSourceURL()"><span class="label">$dataset.getSourceName()</span></a>
                                             | <i class="icon-bullhorn"></i> #i18n('dataset.license') <a href="$dataset.getLicenseURL()">$dataset.getLicenseName()</a>
                                         <br/>
@@ -80,16 +83,19 @@
                                         <br/>
                                             <i class="icon-file"></i> #i18n('dataset.format') <a href="$dataset.getFormatURL()">$dataset.getFormatName()</a>
                                             | <i class="icon-share"></i> #i18n('dataset.uri') &lt;<a href="$dataset.getUri()"><span class="long-string">$dataset.getUri()</span></a>&gt;
+                                            <!-- We redirect to the SPARQL endpoint via its REST interface. -->
+                                            <!-- data-index is a custom attribute used to retrieve the dataset's size. -->
                                             | <i class="icon-list"></i> <a href="$baseUri/sparql/describe?uri=$dataset.getGraph()&type=Graph&default-graph=internal&max=500"><span class="triples label label-info" data-index="$foreach.count">$dataset.getNbTriples() #i18n('dataset.triples')</span></a>
                                         </p>
                                     </div>
                                 </div>
                             </div>
+                            <!-- Dataset structure area. -->
                             <div class="span3">
                                 <h5>#i18n('dataset.observations')</h5>
                                 <small class="text-info">$dataset.getStructureName()</small>
                                 <p>
-                                    <i class="icon-globe"></i> #i18n('dataset.coverage') 
+                                    <i class="icon-globe"></i> #i18n('dataset.coverage')
                                     <br/><small><a href="$dataset.getCoverageURL()">$dataset.getCoverageName()</a></small>
                                     <br/>
                                     <i class="icon-zoom-in"></i> #i18n('dataset.dimension')
@@ -105,10 +111,12 @@
 
                     <div class="tab-pane" id="table$foreach.count">
                         <script type="text/javascript">
+                            ## This looks like what I use to create the dataset glimpse. But why here ?
                             extract[$foreach.count] = "<table class=\'table table-condensed\'><thead><tr><th>#i18n('dataset.dimension')</th><th>#i18n('dataset.measure')</th></tr></thead><tbody><tr><td><small><span class=\'dimension-string\' title=\'$dataset.getExtractDim()\'>$dataset.getExtractDim()</span></small></td><td><small>$dataset.getExtractMeas()</small></td></tr><tr><td><small>&hellip;</small></td><td><small>&hellip;</small></td></tr><tr><td><small><span class=\'dimension-string\' title=\'$dataset.getExtractDimBis()\'>$dataset.getExtractDimBis()</span></small></td><td><small>$dataset.getExtractMeasBis()</small></td></tr></tbody></table>";
                         </script>
                         <div class="row">
                             <div class="span12">
+                                <!-- Dataset DataTable. -->
                                 <table class="observation-table table table-striped table-condensed table-bordered">
                                     <thead><tr><th>$dataset.getDimensionName()</th><th>$dataset.getMeasureName()</th></tr></thead>
                                     <tbody data-index="$foreach.count">
@@ -122,12 +130,16 @@
                     </div>
 
                     <div class="tab-pane observation-barchart" id="chart$foreach.count" data-index="$foreach.count">
+                        <!-- Dataset pie chart. ID suffixed by the dataset's number. -->
                         <div id="innerchart$foreach.count"></div>
                     </div>
+
                     <div class="tab-pane observation-stats" id="stats$foreach.count" data-index="$foreach.count">
                         <div class="row">
                                 <div class="span6">
-                                    <h4><strong>Indices de position</strong></h4>
+                                    <!-- Statistics panel. -->
+                                    <!-- This might not be the best layout ever. -->
+                                    <h4><strong>#i18n('stats.position')</strong></h4>
                                     <dl>
                                         <dd title="#i18n('stats.mean.desc')" class="text-info">#i18n('stats.mean')</dd>
                                         <dt class="stats$foreach.count stats-mean">NA</dt>
@@ -140,7 +152,7 @@
                                     </dl>
                                 </div>
                                 <div class="span6">
-                                    <h4><strong>Indices de dispersion</strong></h4>
+                                    <h4><strong>#i18n('stats.dispersion')</strong></h4>
                                     <dl>
                                         <dd title="#i18n('stats.min.desc')" class="text-info">#i18n('stats.min')</dd>
                                         <dt class="stats$foreach.count stats-min">NA</dt>
@@ -171,6 +183,7 @@
         </div>
         #footer
         #script_links
+        <!-- TODO : Reduce number of dependencies. Minify, concatenate. -->
         <script type="text/javascript" src="${moduleUri}/static/js/vendor/jquery-1.8.2.js"></script>
         <script type="text/javascript" src="${moduleUri}/static/js/vendor/underscore.min.js"></script>
         <script type="text/javascript" src="${moduleUri}/static/js/vendor/underscore.string.min.js"></script>
@@ -186,6 +199,8 @@
         var decimalSeparator = "#i18n('separator.decimal')";
         var thousandsSeparator = "#i18n('separator.thousands')";
 
+
+        // Retrieve the dataset's observation.
 
         // # data[0] = first Dataset
         // # data[0][0] = dimensions array
@@ -210,22 +225,21 @@
           data[dsIndex][1].push(parseInt($this.find('.data-numeric').attr('data-numeric')));
         });
 
-        var dataTmp = [{"label":data[1][0][0], "value":data[1][1][0]}, 
+        var dataTmp = [{"label":data[1][0][0], "value":data[1][1][0]},
                         {"label":data[1][0][1], "value":data[1][1][1]}];
         for(var i = 2; i < data[1][0].length; i++) {
             dataTmp.push({"label":data[1][0][i], "value":data[1][1][i]});
         }
         </script>
 
+        <!-- TODO : Organize. Minify, concatenate. -->
         ## Lien temporaire pour le développement.
         ## <script type="text/javascript" src="http://localhost:1337/static/js/plugins.js"></script>
         ## <script type="text/javascript" src="http://localhost:1337/static/js/main.js"></script>
-        ## <script type="text/javascript" src="http://localhost:1337/static/js/index.js"></script>
         ## <script type="text/javascript" src="http://localhost:1337/static/js/stats.js"></script>
         ## <script type="text/javascript" src="http://localhost:1337/static/js/charts.js"></script>
         <script type="text/javascript" src="${moduleUri}/static/js/plugins.js"></script>
         <script type="text/javascript" src="${moduleUri}/static/js/main.js"></script>
-        ##<script type="text/javascript" src="${moduleUri}/static/js/index.js"></script>
         <script type="text/javascript" src="${moduleUri}/static/js/stats.js"></script>
         <script type="text/javascript" src="${moduleUri}/static/js/charts.js"></script>
     </body>

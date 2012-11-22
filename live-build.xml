@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <project name="datalift-d4" default="deploy" basedir=".">
 
+	<!--
+		This file helps redeploying a DataLift module faster.
+		To use it, properties have to be updated to point to the right locations.
+	-->
+
 	<!-- ================ Property Definitions ============================== -->
 
 	<property name="tomcat.home" value="/Library/Tomcat"/>
@@ -8,14 +13,14 @@
 	<property name="tomcat.port" value="8080"/>
 	<property name="tomcat.server" value="localhost"/>
 	<property name="tomcat.url" value="http://${tomcat.server}:${tomcat.port}"/>
-	
+
 	<property name="tomcat.msg.start" value="Tomcat started"/>
 	<property name="tomcat.msg.stop" value="Tomcat stopped"/>
 
 	<property name="project.home" value="/Library/Datalift/datalift-home"/>
 	<property name="project.modules" value="${project.home}/modules"/>
 
-	<property name="project.code" value="/Users/Will/Desktop/tw/datalift"/>
+	<property name="project.code" value="~/Projects/tw/datalift"/>
 
 	<property name="module.name" value="d4"/>
 	<property name="module.path" value="${project.code}/${module.name}"/>
@@ -23,7 +28,7 @@
 	<property name="module.url" value="${tomcat.url}/datalift/${module.name}"/>
 
 	<!-- ================ Target Definitions ============================== -->
-	<!-- 
+	<!--
 		Deploy only reloads part of the HTML rendering (templating or static).
 		It is necessary to reload (approx. 20s) to render Java modifications.
 	 -->
@@ -47,7 +52,7 @@
 	</target>
 
 	<!-- ================ Tomcat management ============================== -->
-	<!-- 
+	<!--
 		We have to wait for Tomcat to stop / start before proceeding.
 		Tomcat is launched with a specific JVM arg for Datalift.
 		We add notifications with say and growlnotify.
@@ -81,7 +86,7 @@
 	</target>
 
 	<!-- ================ URL opener ============================== -->
-	<!-- 
+	<!--
 		Opens the given URL into the default browser.
 		Useless if using LiveReload (set to  source code).
 	-->

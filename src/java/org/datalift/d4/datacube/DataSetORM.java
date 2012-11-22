@@ -18,9 +18,9 @@ public class DataSetORM {
 
 	private final String sourceURI;
 	private final String lang;
-	
+
 	private DataSet dataset;
-	
+
 	private static final String uri = "uri";
 	private static final String title = "title";
 
@@ -46,37 +46,38 @@ public class DataSetORM {
 	private static final String measureURI = "measureURI";
 
 	private static final String structureName = "structureName";
-	
+
 	/** Datalift's internal Sesame {@link Repository repository}. **/
-    protected static final Repository INTERNAL_REPO = Configuration.getDefault().getInternalRepository();
-    /** Datalift's internal Sesame {@link Repository repository} URL. */
-    protected static final String INTERNAL_URL = INTERNAL_REPO.getEndpointUrl();
-    /** Datalift's logging system. */
-    protected static final Logger LOG = Logger.getLogger();
-	
+  protected static final Repository INTERNAL_REPO = Configuration.getDefault().getInternalRepository();
+  /** Datalift's internal Sesame {@link Repository repository} URL. */
+  protected static final String INTERNAL_URL = INTERNAL_REPO.getEndpointUrl();
+  /** Datalift's logging system. */
+  protected static final Logger LOG = Logger.getLogger();
+
 	public DataSetORM(String sourceURI, String lang) {
 		this.sourceURI = sourceURI;
 		this.lang = lang;
-		
+
 		dataset = new DataSet();
 		dataset.setGraph(sourceURI);
 	}
-	
+
+	// We might want to only retrieve values for a given language.
 	public String filterLang(String binding) {
 		return "FILTER ( lang(?" + binding + ") = '" + lang + "' ) ";
 	}
-	
+
 	public DataSet getDataSet() {
 		getMetaData();
 		getObservations();
-		
+
 		return dataset;
 	}
-	
+
 	private void getMetaData() {
 		TupleQuery tq;
 		TupleQueryResult tqr;
-		
+
 		String prefix = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
 				+ "PREFIX sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> "
 				+ "PREFIX foaf: <http://xmlns.com/foaf/0.1/> "
@@ -143,13 +144,13 @@ public class DataSetORM {
 						+ filterLang(structureName) + filterLang(dimensionName)
 						+ filterLang(measureName);
 		String query = prefix + " SELECT " + bindings + " " + from + " WHERE { " + where + " " + filterLang + " }";
-		
+
 		LOG.debug("Processing query: \"{}\"", query);
 		RepositoryConnection cnx = INTERNAL_REPO.newConnection();
 		try {
 			tq = cnx.prepareTupleQuery(QueryLanguage.SPARQL, query);
 			tqr = tq.evaluate();
-			
+
 			BindingSet bs = tqr.next();
 			dataset.setUri(bs.getValue(uri).stringValue());
 			dataset.setTitle(bs.getValue(title).stringValue());
@@ -160,31 +161,31 @@ public class DataSetORM {
 			dataset.setDepictionURL(bs.getValue(depictionURL).stringValue());
 			dataset.setCoverageName(bs.getValue(coverageName).stringValue());
 			dataset.setCoverageURL(bs.getValue(coverageURL).stringValue());
-			
+
 			dataset.setLicenseName(bs.getValue(licenseName).stringValue());
 			dataset.setFormatName(bs.getValue(formatName).stringValue());
 			dataset.setSourceName(bs.getValue(sourceName).stringValue());
-			
+
 			dataset.setModificationDate(bs.getValue(modificationDate).stringValue());
 			dataset.setReleaseDate(bs.getValue(releaseDate).stringValue());
 			dataset.setPeriodicity(bs.getValue(periodicity).stringValue());
 			dataset.setUnitMeasureName(bs.getValue(unitMeasureName).stringValue());
 			dataset.setUnitMeasure(bs.getValue(unitMeasure).stringValue());
-			
+
 			dataset.setDimensionName(bs.getValue(dimensionName).stringValue());
 			dataset.setDimensionURI(bs.getValue(dimensionURI).stringValue());
 			dataset.setMeasureName(bs.getValue(measureName).stringValue());
 			dataset.setMeasureURI(bs.getValue(measureURI).stringValue());
 			dataset.setStructureName(bs.getValue(structureName).stringValue());
-			
+
 			while (tqr.hasNext()) {
 				bs = tqr.next();
 			}
-			
+
 			dataset.setLicenseURL(bs.getValue(licenseName).stringValue());
 			dataset.setFormatURL(bs.getValue(formatName).stringValue());
 			dataset.setSourceURL(bs.getValue(sourceName).stringValue());
-			
+
 		}
 		catch (MalformedQueryException e) {
 			LOG.fatal("Failed to process query \"{}\":", e, query);
@@ -197,11 +198,11 @@ public class DataSetORM {
 		    try { cnx.close(); } catch (Exception e) { /* Ignore... */ }
 		}
 	}
-	
+
 	private void getObservations() {
 		TupleQuery tq;
 		TupleQueryResult tqr;
-		
+
 		String prefix = "PREFIX sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> "
 				+ "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
 				+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
@@ -209,24 +210,24 @@ public class DataSetORM {
 				+ "PREFIX sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#>";
 		String where = "?s a qb:Observation . ?s sdmx-dimension:refArea ?dim . ?s sdmx-measure:obsValue ?obs .";
 		String query = prefix + " SELECT ?dim ?obs FROM <" + sourceURI + "> WHERE { " + where + " }";
-		
+
 		LOG.debug("Processing query: \"{}\"", query);
 		RepositoryConnection cnx = INTERNAL_REPO.newConnection();
 		try {
 			tq = cnx.prepareTupleQuery(QueryLanguage.SPARQL, query);
 			tqr = tq.evaluate();
-			
+
 			BindingSet bs;
 			LinkedList<Observation> tmp = new LinkedList<Observation>();
-			
+
 			while (tqr.hasNext()) {
 				bs = tqr.next();
 				tmp.add(new Observation(bs.getValue("dim").stringValue(), bs.getValue("obs").stringValue()));
-				
+
 			}
-			
+
 			dataset.setObservations(tmp);
-			
+
 		}
 		catch (MalformedQueryException e) {
 			LOG.fatal("Failed to process query \"{}\":", e, query);
@@ -239,5 +240,5 @@ public class DataSetORM {
 		    try { cnx.close(); } catch (Exception e) { /* Ignore... */ }
 		}
 	}
- 
+
 }

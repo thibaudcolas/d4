@@ -91,10 +91,35 @@ An alternative live-build.xml file is provided to fasten the development process
 ++ There is a good example of interesting data to handle in the doc/ folder.
 + Correct the variance's formula
 + Add new charts / graphs.
-+ Better process alternative metadata properties
++ Better process for alternative metadata properties
+
+### Flaws ###
+
+- Overall too limited use
+- At the moment the Datalift dependecy is quite useless
+- Statistical datasets usually don't have an image depiction
+- There is no actual processing of the dataset's structure definition
+- It is quite rare for datasets to have that much metadata
+- It is quite rare for that metadata to be translated
+- Some predicates are duplicated, which is odd
+- The metadata actually being processed is quite restrained
+- Using any other metadata makes D4 crash
+- The Java code structure is weird
+- D4 / Sesame's relationship might need an ORM like AliBaba
+- It's hard to tell whether a given dataset could use D4 or not
+- It is weird to display multiple datasets in the same view
+- Bad way to find out if a dataset is suitable for D4
+- The main SPARQL query has to be strengthened
+- Many data types (int, bool, etc) aren't supported
+- Too many JavaScript dependencies
+- CoffeeScript is of no use here
+- Too much DOM manipulation, in a sad way
+- JS / Coffee isn't properly ordered
+- Statistical indexes layout sucks
 
 ## External resources ##
 
+* https://github.com/ThibWeb/d4
 * http://datalift.org
 * http://d3js.org/
 * http://datatables.net/

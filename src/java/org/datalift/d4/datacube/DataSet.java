@@ -4,14 +4,17 @@ import java.util.LinkedList;
 
 import org.datalift.fwk.log.Logger;
 
+/**
+ * Objects of this class represent a DataCube DataSet with its metadata and observations.
+ */
 public class DataSet {
-	
+
 	private String graph;
 	private String uri;
 	private String title;
-	
+
 	private String nbTriples;
-	
+
 	private String description;
 	private String comment;
 	private String publisherName;
@@ -30,24 +33,24 @@ public class DataSet {
 	private String periodicity;
 	private String unitMeasureName;
 	private String unitMeasure;
-	
+
 	private String dimensionName;
 	private String dimensionURI;
 	private String measureName;
 	private String measureURI;
-	
+
 	private String extractDim;
 	private String extractMeas;
 	private String extractDimBis;
 	private String extractMeasBis;
-	
+
 	private String structureName;
-	
+
 	public LinkedList<Observation> observations;
-	
+
 	/** Datalift's logging system. */
     protected static final Logger LOG = Logger.getLogger();
-	
+
 	public DataSet() {
 		observations = new LinkedList<Observation>();
 	}
@@ -75,7 +78,7 @@ public class DataSet {
 	public void setTitle(String title) {
 		this.title = (title == null || title.equals("") ? "N/A" : title);
 	}
-	
+
 	public String getNbTriples() {
 		return nbTriples;
 	}

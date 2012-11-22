@@ -1,5 +1,6 @@
 ###
 # Console-lacking browsers.
+# Should be removed for an app with a known environment.
 ###
 
 # Avoid `console` errors in browsers that lack a console.

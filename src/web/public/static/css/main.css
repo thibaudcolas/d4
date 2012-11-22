@@ -7,10 +7,15 @@ body {
 }
 
 h3 {
-	line-height:20px; 
+	line-height:20px;
 	font-size:18px;
 }
 
+/**
+ *
+ * Data table alternate rows (should use nth-child).
+ *
+ */
 
 .observation-table tbody tr.even:hover, .observation-table tbody tr.even td.highlighted {
 	background-color: #3a87ad;

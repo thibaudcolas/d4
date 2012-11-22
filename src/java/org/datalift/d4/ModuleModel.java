@@ -27,33 +27,33 @@ import org.openrdf.repository.RepositoryConnection;
 import org.openrdf.repository.RepositoryException;
 
 /**
- * An abstract class for all of the interlinking modules, combining default 
+ * An abstract class for some modules, combining default
  * operations and values.
- * 
+ *
  * @author tcolas
  * @version 071112
  */
 public abstract class ModuleModel {
-	
+
     //-------------------------------------------------------------------------
     // Constants
     //-------------------------------------------------------------------------
 
     /** Base name of the resource bundle for converter GUI. */
     protected static String GUI_RESOURCES_BUNDLE = ModuleController.GUI_RESOURCES_BUNDLE;
-    
+
     /** Binding for the default subject var in SPARQL. */
     protected static final String SB = "s";
     /** Binding for the default predicate var in SPARQL. */
     protected static final String PB = "p";
     /** Binding for the default object var in SPARQL. */
     protected static final String OB = "o";
-    
+
     /** Default WHERE SPARQL clause to retrieve all classes. */
     private static final String CLASS_WHERE = "{?" + SB + " a ?" + OB + "}";
     /** Default WHERE SPARQL clause to retrieve all predicates. */
     private static final String PREDICATE_WHERE = "{?" + SB + " ?" + PB + " ?" + OB + "}";
-    
+
     //-------------------------------------------------------------------------
     // Class members
     //-------------------------------------------------------------------------
@@ -103,7 +103,7 @@ public abstract class ModuleModel {
      * @return True if src is {@link TransformedRdfSource} or {@link SparqlSource}.
      */
     protected abstract boolean isValidSource(Source src);
-    
+
     /**
      * Checks if a {@link Project proj} contains valid RDF sources.
      * @param proj The project to check.
@@ -113,7 +113,7 @@ public abstract class ModuleModel {
     protected final boolean hasMultipleRDFSources(Project proj, int minvalid) {
     	int cpt = 0;
     	Iterator<Source> sources = proj.getSources().iterator();
-    	
+
     	while (sources.hasNext() && cpt < minvalid) {
     		if (isValidSource(sources.next())) {
     			cpt++;
@@ -121,7 +121,7 @@ public abstract class ModuleModel {
     	}
     	return cpt >= minvalid;
     }
-    
+
     /**
      * Returns all of the URIs (as strings) from the {@link Project project}.
      * @param proj The project to use.
@@ -129,7 +129,7 @@ public abstract class ModuleModel {
      */
     protected final LinkedList<String> getSourcesURIs(Project proj) {
     	LinkedList<String> ret = new LinkedList<String>();
-    	
+
     	for (Source src : proj.getSources()) {
     		if (isValidSource(src)) {
     			ret.add(src.getUri());
@@ -137,11 +137,11 @@ public abstract class ModuleModel {
     	}
     	return ret;
     }
-    
+
     //-------------------------------------------------------------------------
     // Queries management.
     //-------------------------------------------------------------------------
-    
+
     /**
 	 * Tels if the bindings of the results are well-formed.
 	 * @param tqr The result of a SPARQL query.
@@ -152,7 +152,7 @@ public abstract class ModuleModel {
 	protected boolean hasCorrectBindingNames(TupleQueryResult tqr, String bind) throws QueryEvaluationException {
 		return tqr.getBindingNames().size() == 1 && tqr.getBindingNames().contains(bind);
 	}
-    
+
 	/**
 	 * Sends and evaluates a SPARQL select query on the data set, then returns
 	 * the results (which must be one-column only) as a list of Strings.
@@ -164,17 +164,17 @@ public abstract class ModuleModel {
 		TupleQuery tq;
 		TupleQueryResult tqr;
 		LinkedList<String> ret = new LinkedList<String>();
-		
+
 		LOG.debug("Processing query: \"{}\"", query);
 		RepositoryConnection cnx = INTERNAL_REPO.newConnection();
 		try {
 			tq = cnx.prepareTupleQuery(QueryLanguage.SPARQL, query);
 			tqr = tq.evaluate();
-			
+
 			if (!hasCorrectBindingNames(tqr, bind)) {
 				throw new MalformedQueryException("Wrong query result bindings - " + query);
 			}
-			
+
 			while (tqr.hasNext()) {
 				ret.add(tqr.next().getValue(bind).stringValue());
 			}
@@ -191,7 +191,7 @@ public abstract class ModuleModel {
 		}
 	    return ret;
 	}
-    
+
     /**
      * Writes a query given a bind to retrieve, a context and a WHERE clause.
      * @param context Context on which the query will be executed.
@@ -205,7 +205,7 @@ public abstract class ModuleModel {
     			+ " WHERE " + where;
     	return ret;
     }
-    
+
     /**
      * Retrieves multiple queries results based on a query pattern executed on
      * multiple contexts.
@@ -216,7 +216,7 @@ public abstract class ModuleModel {
      */
     protected final LinkedList<String> getMultipleResults(LinkedList<String> contexts, String where, String bind) {
     	LinkedList<String> ret = new LinkedList<String>();
-    	
+
     	for (String context : contexts) {
     		ret.addAll(selectQuery(writeQuery(context, where, bind), bind));
     	}
@@ -231,7 +231,7 @@ public abstract class ModuleModel {
     protected final LinkedList<String> getAllClasses(LinkedList<String> contexts) {
 		return getMultipleResults(contexts, CLASS_WHERE, OB);
 	}
-	
+
 	/**
      * Retrieves all of the predicates used inside given contexts.
      * @param contexts The contexts to use.
@@ -240,41 +240,41 @@ public abstract class ModuleModel {
 	protected final LinkedList<String> getAllPredicates(LinkedList<String> contexts) {
 		return getMultipleResults(contexts, PREDICATE_WHERE, PB);
 	}
-	
+
 	//-------------------------------------------------------------------------
     // Value validation.
     //-------------------------------------------------------------------------
-    
+
 	/**
-     * Checks whether a value is empty, eg. "", or the values corresponding 
+     * Checks whether a value is empty, eg. "", or the values corresponding
      * to a field that wasn't filled.
      * @param val Value to check.
      * @return True if val is empty.
      */
 	protected boolean isEmptyValue(String val) {
-    	return val.isEmpty() 
+    	return val.isEmpty()
     		|| val.equals(getTranslatedResource("field.none"))
     		|| val.equals(getTranslatedResource("field.optional"))
     		|| val.equals(getTranslatedResource("field.mandatory"));
     }
-	
+
 	/**
      * Checks if the given string is numeric. Relies on exceptions being thrown,
      * thus not very effective performance-wise.
      * @param str A possibly numerical string.
      * @return True if str is numeric.
      */
-    public static boolean isNumeric(String str) { 
+    public static boolean isNumeric(String str) {
     	boolean ret = true;
-    	try {  
-    		Double.parseDouble(str);  
-    	}  
-    	catch (NumberFormatException nfe) {  
-    		ret = false;  
-    	}  
-    	return ret;  
+    	try {
+    		Double.parseDouble(str);
+    	}
+    	catch (NumberFormatException nfe) {
+    		ret = false;
+    	}
+    	return ret;
     }
-    
+
 	/**
      * Checks whether the given sources are different.
      * @param one Source to check.
@@ -284,7 +284,7 @@ public abstract class ModuleModel {
     protected boolean isDifferentSources(String one, String two) {
     	return !one.equals(two);
     }
-    
+
 	/**
      * Checks whether the given source exists for a given project.
      * @param val Source to find.
@@ -294,7 +294,7 @@ public abstract class ModuleModel {
     protected boolean isValidSource(String val, Project proj) {
     	return !isEmptyValue(val) && getSourcesURIs(proj).contains(val);
     }
-    
+
     /**
      * Checks whether a value is valid, eg. is inside a list. The value must be
      * trimmed first.
@@ -305,7 +305,7 @@ public abstract class ModuleModel {
     protected boolean isValidValue(String val, LinkedList<String> values) {
     	return !val.isEmpty() && values.contains(val);
     }
-   
+
     /**
      * Checks whether the given class exists inside a given context.
      * @param val Class to find.
@@ -313,10 +313,10 @@ public abstract class ModuleModel {
      * @return True if the class exists in the given context.
      */
     protected boolean isValidClass(String val, String context) {
-    	return !val.isEmpty() && !context.isEmpty() 
+    	return !val.isEmpty() && !context.isEmpty()
     		&& isValidValue(val, selectQuery(writeQuery(context, CLASS_WHERE, OB), OB));
     }
-    
+
     /**
      * Checks whether the given predicate exists inside a given context.
      * @param val Class to find.
@@ -327,7 +327,7 @@ public abstract class ModuleModel {
     	return !val.isEmpty() && !context.isEmpty()
     		&& isValidValue(val, selectQuery(writeQuery(context, PREDICATE_WHERE, PB), PB));
     }
-    
+
     //-------------------------------------------------------------------------
     // Launcher management.
     //-------------------------------------------------------------------------
