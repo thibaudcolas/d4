@@ -14,6 +14,11 @@ import org.openrdf.query.TupleQueryResult;
 import org.openrdf.repository.RepositoryConnection;
 import org.openrdf.repository.RepositoryException;
 
+
+/**
+ * Used to convert a DataCube DataSet's RDF representation to a Java object.
+ * @author tcolas
+ */
 public class DataSetORM {
 
 	private final String sourceURI;
@@ -74,6 +79,10 @@ public class DataSetORM {
 		return dataset;
 	}
 
+	/**
+	 * Sends a massive query to retrieve all of the dataset's metadata.
+	 * TODO : This query needs to be written with UNIONs.
+	 */
 	private void getMetaData() {
 		TupleQuery tq;
 		TupleQueryResult tqr;
@@ -199,6 +208,9 @@ public class DataSetORM {
 		}
 	}
 
+	/**
+	 * Sends a SPARQL query to retrieve a dataset's observation.
+	 */
 	private void getObservations() {
 		TupleQuery tq;
 		TupleQueryResult tqr;

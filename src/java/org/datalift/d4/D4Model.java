@@ -89,7 +89,9 @@ public class D4Model extends ModuleModel {
     	return !ret.isEmpty();
     }
 
-
+    /**
+     * Retrieves all of the DataCube DataSets from a given project's sources.
+     */
     public LinkedList<DataSet> getProjectDataSets(Project proj) {
     	LinkedList<DataSet> ret = new LinkedList<DataSet>();
     	DataSetORM datasetMapper;

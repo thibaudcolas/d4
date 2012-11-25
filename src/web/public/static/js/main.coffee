@@ -15,9 +15,9 @@ diffDays = (date) ->
 
 $ ->
 
-	#
+	###
 	# Here we setup all of the tooltips / String transformations / popovers.
-	#
+	###
 
 	$('time').tooltip {title: -> timeDisplay diffDays $(@).html()}
 
@@ -25,14 +25,17 @@ $ ->
 
 	$('dd').popover {trigger: 'hover', placement: 'right'}
 
+	# Displays a glimpse of the dataset's observations.
 	$('.triples').popover {html: on, trigger: 'hover', placement: 'bottom', title: "#{extractLabel}", content: -> extract[$(@).attr 'data-index']}
 
+	# Transforms long strings to shorter ones.
 	$('.long-string').each ->
 		$this = $(@)
 		if $this.html().length > 35
 			$this.tooltip {title: $this.html()}
 			$this.html _.prune $this.html(), 35, '&hellip;'
 
+	# Makes displaying URIs easier.
 	$('.dimension-string').each ->
 		$this = $(@)
 		$this.tooltip()
@@ -42,20 +45,16 @@ $ ->
 			$this.html _.titleize _.swapCase $this.html()
 		return
 
+	# Format numbers according to the current number convention. The int in "measure-int" isn't well choosed.
 	$('.measure-int').each ->
 		$this = $(@)
 		$this.html _.numberFormat (_.toNumber $this.html()), 0, decimalSeparator, thousandsSeparator
 
-	# $('.observation-barchart').each ->
-	# 	$this = $(@)
-	# 	index = $this.attr 'data-index'
-	# 	dd = [4, 8, 15, 16, 23, 42];
-	# 	chart = d3.select("#innerchart" + index).append("div").attr "class", "chart"
-	# 	chart.selectAll("div").data(dd).enter().append("div").style("width", (d) -> d * 10 + "px").text (d) -> d
-	# 	return
-
+	###
 	# Datatable translation.
-	# The big one-liner is ugly but easier for CoffeeScript's "magic".
+	# The big one-liner is ugly but better for CoffeeScript's "magic".
+	###
+
 	if pageLang is 'en'
 		$('.observation-table').dataTable {
 	    'aoColumns': [{ 'sType': 'html' }, { 'sType': 'data-numeric' }]
