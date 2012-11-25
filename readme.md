@@ -64,6 +64,10 @@ The data has been put on a map where the number of french people in each country
 
 ## Module architecture ##
 
+### General workflow ###
+
+![D4 Workflow](http://i.imgur.com/f8I4K.jpg)
+
 ### Back-end ###
 
 On the server-side, D4 is backed by DataLift, thus made with JEE, Jersey, Empire and a Sesame triple store. D4 retrieves the datasets' data via SPARQL , uses a little ORM-like translation and sends DataCube DataSets to its views which use Velocity.
