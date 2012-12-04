@@ -119,8 +119,7 @@
   <property name="jar.path"             location="${dist.home}/${jar.name}"/>
 
   <property name="locale.default"       value="en"/>
-  <property name="locale.default_resources"
-            value="${web.home}/resources_${locale.default}.properties"/>
+  <property name="locale.default_resources" value="${web.home}/resources_${locale.default}.properties"/>
 
   <available property="locale.exists" file="${locale.default_resources}"/>
 
