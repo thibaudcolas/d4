@@ -97,6 +97,7 @@ An alternative live-build.xml file is provided to fasten the development process
 + Add new charts / graphs.
 + Better process for alternative metadata properties
 
+<!--
 ### Flaws ###
 
 - Overall too limited use
@@ -120,6 +121,7 @@ An alternative live-build.xml file is provided to fasten the development process
 - Too much DOM manipulation, in a sad way
 - JS / Coffee isn't properly ordered
 - Statistical indexes layout sucks
+- -->
 
 ## External resources ##
 
