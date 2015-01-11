@@ -1,21 +1,19 @@
 # D4 Readme #
 
-Version: 0.4
-Date: 07/11/12
-
-DataLift, DataCube, D3.
+> DataLift, DataCube, D3
 
 ## tl;dr ##
 
-D4 is a DataLift module to visualize RDF DataCube data.
-D4 is made with Twitter Bootstrap, D3.js and CoffeeScript.
-D4 is currently an alpha product under active development.
+> D4 is a DataLift module to visualize RDF DataCube data.
+> D4 is made with Twitter Bootstrap, D3.js, Underscore and CoffeeScript.
 
 ## Functionalities ##
 
 ### Metadata visualization ###
 
 D4's main interface displays the datasets' metadata : a previsouly defined set of metadata properties are retrieved via SPARQL and displayed according to a predefined scheme. Each property is translated to the user's language if available and so does the interface.
+
+![Metadata view](doc/screenshots/metadata-view.PNG)
 
 We believe metadata availability is especially important in the case of statistical datasets to identify the data's origin and data retrieval methodology.
 
@@ -25,6 +23,8 @@ D4 uses the Underscore.js library to format its String and number values accordi
 
 A classic table displays all of the observations in a spreadsheet-like style. Rows can be ordered according to their cells' values, the user can search for values in the data, thus being able to see each data item individually if necessary.
 
+![Table view](doc/screenshots/table-view.PNG)
+
 This view is necessary to be able to look for the greatest / lowest values and to be able to visualize every piece of data in a format that every user will know how to use.
 
 D4 uses the DataTables jQuery plugin to manage its table.
@@ -33,6 +33,10 @@ D4 uses the DataTables jQuery plugin to manage its table.
 
 Here, (at the moment) we display a pie chart ("camembert") which the summarizes all of the dataset's view. This rather simple graph has one main advantage : first, it is easily comprehensible by anyone looking at it, because you can understand the data distribution (size, patterns, outliers) really quickly. It is however also limited in a number of ways and has to be taken much more as a proof of concept rather than a polished result.
 
+![Graph view](doc/screenshots/graph-view.PNG)
+
+![Graph view bis](doc/screenshots/graph-view-bis.PNG)
+
 This really is one of the most important part of data visualisation : the ability to overview big data in small representations, to understand how the data is distributed without having to look at all the data items.
 
 D4 uses the D3.js library which creates graphs via SVG to display its pie chart.
@@ -40,6 +44,8 @@ D4 uses the D3.js library which creates graphs via SVG to display its pie chart.
 ### Statistic measures ###
 
 Here are displayed the most used statistic dispersion and position measures : the mean, the mode, the median, the variance, the standard deviation, the range, minimum and maximum values. Those measures aren't always available for all of the datasets, nor useful for some of them, but can be easily understood by beginner statisticians.
+
+![Statistics view](doc/screenshots/statistics-view.PNG)
 
 Being able to create knowledge by processing data is amazing, and the modern deluge of information makes this automatic processing a necessity. Our module doesn't go as far as could be but this view is a statement that this kind of processing is needed for a good visualisation / data analysis tool.
 
@@ -70,7 +76,7 @@ The data has been put on a map where the number of french people in each country
 
 ### Back-end ###
 
-On the server-side, D4 is backed by DataLift, thus made with JEE, Jersey, Empire and a Sesame triple store. D4 retrieves the datasets' data via SPARQL , uses a little ORM-like translation and sends DataCube DataSets to its views which use Velocity.
+D4 is backed by DataLift, thus made with JEE, Jersey, Empire and a Sesame triple store. D4 retrieves the datasets' data via SPARQL , uses a little ORM-like translation and sends DataCube DataSets to its views which use Velocity.
 
 ### Front-end ###
 
@@ -129,7 +135,6 @@ An alternative live-build.xml file is provided to fasten the development process
 * http://datalift.org
 * http://d3js.org/
 * http://datatables.net/
-* http://www.trgdy.com/data/dataviz.html
 * http://coffeescript.org/
 * http://twitter.github.com/bootstrap/
 * http://underscorejs.org/
