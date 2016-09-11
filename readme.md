@@ -106,7 +106,7 @@ An alternative live-build.xml file is provided to fasten the development process
 
 ## External resources
 
-* https://github.com/ThibWeb/d4
+* https://github.com/thibaudcolas/d4
 * http://datalift.org
 * http://d3js.org/
 * http://datatables.net/
